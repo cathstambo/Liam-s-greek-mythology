@@ -2,10 +2,8 @@ import { pages } from './pages.js';
 
 const book = document.querySelector('#book');
 const tools = document.querySelector('#tools');
-let currentPage = 0;
-let viewOverride = null;
-let printMode = false;
-const spread = matchMedia('(min-width: 1000px) and (orientation: landscape)');
+const landscape = matchMedia('(orientation: landscape)');
+const tabletWidth = matchMedia('(min-width: 1000px)');
 const pageElements = [];
 
 function content(region) {
@@ -48,19 +46,10 @@ for (const page of pages) {
   }
   book.append(article); pageElements.push(article);
 }
-function isSpread() { return viewOverride ?? spread.matches; }
-function showPage(index = currentPage, focus = false) {
-  currentPage = Math.max(0, Math.min(pages.length - 1, index));
-  book.classList.toggle('spread', isSpread());
-  book.classList.toggle('phone-spread', isSpread() && !spread.matches);
-  pageElements.forEach((page, i) => { page.hidden = !printMode && !isSpread() && i !== currentPage; });
-  document.querySelector('#previous').disabled = isSpread() || currentPage === 0;
-  document.querySelector('#next').disabled = isSpread() || currentPage === pages.length - 1;
-  document.querySelector('#page-status').textContent = isSpread() ? 'Pages 1 & 2 of 2' : `Page ${currentPage + 1} of 2`;
-  document.querySelector('#view-mode').textContent = isSpread() ? 'Single page' : 'Book spread';
-  document.querySelector('#view-mode').setAttribute('aria-pressed', String(isSpread()));
-  document.querySelector('#view-note').hidden = !isSpread() || spread.matches;
-  if (focus) pageElements[currentPage].focus({ preventScroll: true });
+function updateOrientation() {
+  book.classList.add('spread');
+  book.classList.toggle('phone-spread', !tabletWidth.matches);
+  if (!landscape.matches && tools.open) tools.close();
   requestAnimationFrame(checkFit);
 }
 function checkFit() {
@@ -78,7 +67,7 @@ function checkFit() {
   }
   const broken = book.querySelector('img[data-failed]');
   const message = broken ? 'Page artwork failed to load. Check the asset files or reload.' : failed.length
-    ? `Layout review: ${failed.join('; ')} cannot fit at this text size. Use one page or review the panel dimensions.`
+    ? `Layout review: ${failed.join('; ')} cannot fit at this text size. Review the panel dimensions or restore 100% text scale.`
     : 'All visible text panels fit at this size.';
   for (const id of ['#fit-status', '#fit-announcement']) document.querySelector(id).textContent = message;
   const indicator = document.querySelector('#fit-indicator'); indicator.textContent = failed.length || broken ? ' ⚠' : '';
@@ -86,11 +75,8 @@ function checkFit() {
   const list = document.querySelector('#overflow-list'); list.replaceChildren();
   for (const title of failed) { const li = document.createElement('li'); li.textContent = `${title}: text exceeds its measured panel.`; list.append(li); }
 }
-document.querySelector('#previous').addEventListener('click', () => showPage(currentPage - 1, true));
-document.querySelector('#next').addEventListener('click', () => showPage(currentPage + 1, true));
-document.querySelector('#home').addEventListener('click', () => showPage(0, true));
+document.querySelector('#home').addEventListener('click', () => pageElements[0].focus({ preventScroll: true }));
 document.querySelector('#open-tools').addEventListener('click', () => tools.showModal());
-document.querySelector('#view-mode').addEventListener('click', () => { viewOverride = !isSpread(); showPage(); });
 document.querySelector('#print').addEventListener('click', () => { tools.close(); window.print(); });
 document.querySelector('#text-scale').addEventListener('input', event => {
   document.documentElement.style.setProperty('--text-scale', event.target.value / 100);
@@ -98,14 +84,7 @@ document.querySelector('#text-scale').addEventListener('input', event => {
   checkFit();
 });
 document.querySelector('#diagnostics').addEventListener('change', event => book.classList.toggle('diagnostics', event.target.checked));
-document.addEventListener('keydown', event => {
-  if (tools.open || /INPUT|TEXTAREA|SELECT|BUTTON/.test(event.target.tagName) || isSpread()) return;
-  if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {
-    event.preventDefault(); showPage(currentPage + (event.key === 'ArrowRight' ? 1 : -1), true);
-  }
-});
-spread.addEventListener('change', () => showPage());
+landscape.addEventListener('change', updateOrientation);
+tabletWidth.addEventListener('change', updateOrientation);
 new ResizeObserver(checkFit).observe(book);
-window.addEventListener('beforeprint', () => { printMode = true; pageElements.forEach(page => { page.hidden = false; }); });
-window.addEventListener('afterprint', () => { printMode = false; showPage(); });
-showPage();
+updateOrientation();

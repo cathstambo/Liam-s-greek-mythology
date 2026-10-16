@@ -29,13 +29,12 @@ Tests serve the built site beneath a project subpath. Run the build before testi
 
 ## Use the prototype
 
-- Landscape at 1000 CSS px or wider: both pages together, fitted to available viewport height and width, with Home and controls outside the artwork.
-- Portrait or narrower screens: one page at a time, with Previous/Next and keyboard arrows. No forced rotation.
-- **Book spread / Single page** is always available beside navigation. It overrides the automatic breakpoint for the current session, including after rotation. On small phones, Book spread is a scaled overview with smaller text and a visible reading note; choose Single page for larger text.
-- Home returns to Poseidon's first page; the future encyclopedia has not been invented.
-- Layout checks opens test-only typography scaling (100–140%), panel outlines, overflow reports, Print.
+- Landscape on phones and tablets: both pages together, fitted to viewport height and width, with Home and controls outside the artwork.
+- Portrait: a “Turn your device sideways” message replaces the book. Browsers are not forced to rotate.
+- There is no single-page view or view toggle. Home focuses the start of the book.
+- Layout checks opens test-only typography scaling (100–140%), panel outlines, overflow reports and Print.
 - Stories are labelled Coming soon and are not links.
-- In the automatic and single-page layouts, text starts at 18 CSS px and rises to 20 px on larger pages. Increasing test scale intentionally reveals limits; the app does not silently shrink or clip text. Very narrow devices may show fit warnings.
+- On tablet-sized landscapes, text starts at 18 CSS px and rises to 20 px on larger pages. Increasing test scale intentionally reveals limits; the app does not silently shrink or clip text. On smaller phones the book scales with the artwork and uses smaller text; fit warnings remain available.
 
 ## Publish with GitHub Pages
 
@@ -50,7 +49,7 @@ All application asset/module URLs are relative; no repository name is hard-coded
 
 ## Verify on a real iPad
 
-Open the deployed HTTPS site in Safari at normal browser zoom. Test landscape and portrait, page navigation, Home, Layout checks, orientation changes, and printing. Confirm readable text, no artwork overlap, and no warning at 100% scale. Safari and installed fonts can wrap differently from desktop Chromium. [Validation record](docs/VALIDATION.md) separates completed automated checks from device checks still outstanding.
+Open the deployed HTTPS site in Safari at normal browser zoom. Test the landscape book, portrait rotation message, Home, Layout checks, orientation changes, and printing. Confirm readable text, no artwork overlap, and no warning at 100% scale. Safari and installed fonts can wrap differently from desktop Chromium. [Validation record](docs/VALIDATION.md) separates completed automated checks from device checks still outstanding.
 
 ## Print
 

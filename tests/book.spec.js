@@ -18,18 +18,18 @@ for (const [width, height] of [[1024,768],[1180,820],[1366,1024]]) {
     await page.screenshot({path:`test-results/spread-${width}.png`,fullPage:true});
   });
 }
-test('portrait navigation, Home and automatic orientation change', async ({page}) => {
+test('portrait shows rotation guidance; landscape restores the whole book', async ({page}) => {
   await page.setViewportSize({width:768,height:1024}); await page.goto('./');
-  await expect(page.locator('.page:visible')).toHaveCount(1);
-  await expect(page.locator('.page:visible')).toHaveAttribute('aria-label','Poseidon — God of the Sea');
-  await expect(page.locator('.region.overflowing:visible')).toHaveCount(0);
-  await page.locator('#next').click();
-  await expect(page.locator('#page-status')).toHaveText('Page 2 of 2');
-  await expect(page.locator('.region.overflowing:visible')).toHaveCount(0);
-  await page.locator('#home').click(); await expect(page.locator('#page-status')).toHaveText('Page 1 of 2');
-  await page.locator('body').click({position:{x:4,y:4}}); await page.keyboard.press('ArrowRight');
-  await expect(page.locator('#page-status')).toHaveText('Page 2 of 2');
-  await page.setViewportSize({width:1024,height:768}); await expect(page.locator('.page:visible')).toHaveCount(2);
+  await expect(page.locator('#rotate-message')).toBeVisible();
+  await expect(page.locator('.page:visible')).toHaveCount(0);
+  await expect(page.locator('#open-tools')).not.toBeVisible();
+  await page.setViewportSize({width:1024,height:768});
+  await expect(page.locator('#rotate-message')).not.toBeVisible();
+  await expect(page.locator('.page:visible')).toHaveCount(2);
+  await page.locator('#open-tools').click(); await expect(page.locator('#tools')).toBeVisible();
+  await page.setViewportSize({width:768,height:1024});
+  await expect(page.locator('#tools')).not.toBeVisible();
+  await expect(page.locator('#rotate-message')).toBeVisible();
 });
 test('typography changes real text and exposes overflow; tools close with Escape', async ({page}) => {
   await page.setViewportSize({width:1024,height:768}); await page.goto('./');
@@ -77,22 +77,18 @@ test('all current approved copy appears exactly, with no added sections', async 
   }
 });
 
-test('phone can choose a fitting book overview and return to single-page reading', async ({page}) => {
+test('phone landscape opens the book automatically and portrait only shows guidance', async ({page}) => {
   await page.setViewportSize({width:844,height:390}); await page.goto('./');
-  await expect(page.locator('.page:visible')).toHaveCount(1);
-  await page.getByRole('button', {name:'Book spread',exact:true}).click();
   await expect(page.locator('.page:visible')).toHaveCount(2);
-  await expect(page.locator('#view-note')).toBeVisible();
   await expect(page.locator('.region.overflowing')).toHaveCount(0);
-  expect(await page.locator('.biography').evaluate(e=>parseFloat(getComputedStyle(e).fontSize))).toBeLessThan(18);
+  await expect(page.getByRole('button', {name:'Single page',exact:true})).toHaveCount(0);
   const bounds=await page.locator('#book').boundingBox();
   expect(bounds.x+bounds.width).toBeLessThanOrEqual(844);
   expect(bounds.y+bounds.height).toBeLessThanOrEqual(390);
   await page.setViewportSize({width:390,height:844});
+  await expect(page.locator('.page:visible')).toHaveCount(0);
+  await expect(page.locator('#rotate-message')).toBeVisible();
+  await page.emulateMedia({media:'print'});
+  await expect(page.locator('#rotate-message')).not.toBeVisible();
   await expect(page.locator('.page:visible')).toHaveCount(2);
-  await page.getByRole('button', {name:'Single page',exact:true}).click();
-  await expect(page.locator('.page:visible')).toHaveCount(1);
-  await expect(page.locator('#view-note')).not.toBeVisible();
-  expect(await page.locator('.biography').evaluate(e=>parseFloat(getComputedStyle(e).fontSize))).toBe(18);
-  await page.locator('#next').click(); await expect(page.locator('#page-status')).toHaveText('Page 2 of 2');
 });
