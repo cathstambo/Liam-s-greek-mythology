@@ -29,12 +29,12 @@ Tests serve the built site beneath a project subpath. Run the build before testi
 
 ## Use the prototype
 
-- Landscape on phones and tablets: both pages together, fitted to viewport height and width, with Home and controls outside the artwork.
+- Landscape on tablets (at least 1000 CSS px wide): two-page spread fitted to the viewport. Landscape phones: one page at a time with Previous/Next and Home; the larger page may scroll vertically.
 - Portrait: a “Turn your device sideways” message replaces the book. Browsers are not forced to rotate.
-- There is no single-page view or view toggle. Home focuses the start of the book.
+- Home returns to the first page. Portrait never shows the book or Home controls.
 - Layout checks opens test-only typography scaling (100–140%), panel outlines, overflow reports and Print.
 - Stories are labelled Coming soon and are not links.
-- On tablet-sized landscapes, text starts at 18 CSS px and rises to 20 px on larger pages. Increasing test scale intentionally reveals limits; the app does not silently shrink or clip text. On smaller phones the book scales with the artwork and uses smaller text; fit warnings remain available.
+- Text and artwork share a fixed reference canvas and scale together. Browser text inflation is disabled for the book layout. Increasing the test scale intentionally reveals limits; text is not clipped.
 
 ## Publish with GitHub Pages
 
@@ -49,7 +49,7 @@ All application asset/module URLs are relative; no repository name is hard-coded
 
 ## Verify on a real iPad
 
-Open the deployed HTTPS site in Safari at normal browser zoom. Test the landscape book, portrait rotation message, Home, Layout checks, orientation changes, and printing. Confirm readable text, no artwork overlap, and no warning at 100% scale. Safari and installed fonts can wrap differently from desktop Chromium. [Validation record](docs/VALIDATION.md) separates completed automated checks from device checks still outstanding.
+Open the deployed HTTPS site in Safari at normal browser zoom. Test both phone pages with Previous/Next in landscape, the tablet spread, portrait rotation message, Home, Layout checks, orientation changes and printing. Confirm readable text, no artwork overlap, and no warning at 100% scale. Safari and installed fonts can wrap differently from desktop Chromium. [Validation record](docs/VALIDATION.md) separates completed automated checks from device checks still outstanding.
 
 ## Print
 
@@ -58,3 +58,5 @@ Use Layout checks → Print A5 pages. Choose A5 portrait, 100% scale, background
 ## Add future character pages
 
 Add approved artwork with a common canvas and append page data in `pages.js`: copy, accessible description and percentage-based inner rectangles. Add navigation/grouping only when specified. Keep lettering in HTML, not raster assets. Validate fit at the smallest target viewport before adding more content. Repeat subpath, orientation, overflow and print checks.
+
+Production builds use content-hashed JavaScript and CSS filenames so a refreshed deployment cannot mix new page logic with old cached styles.

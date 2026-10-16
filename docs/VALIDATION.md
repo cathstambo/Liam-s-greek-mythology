@@ -9,14 +9,14 @@ Recorded 16 October 2026. This is the current integrated application, replacing 
 | Check | Result |
 |---|---|
 | 1024 × 768 landscape | Two pages, no document scrolling, all text panels fit at default 18 px |
-| 1180 × 820 landscape | Two pages, no document scrolling, all text panels fit at default responsive size |
-| 1366 × 1024 landscape | Two pages, no document scrolling, all text panels fit at default 20 px |
+| 1180 × 820 landscape | Two pages, no document scrolling, all text panels fit with artwork and text scaled together |
+| 1366 × 1024 landscape | Two pages, no document scrolling, all text panels fit with artwork and text scaled together |
 | 768 × 1024 portrait | Rotation guidance replaces the book; landscape restores both pages and closes an open checks dialog |
 | Artwork | Both SVG canvases load via HTTP at 1067 × 1280; screenshot inspection confirms embedded artwork renders |
 | Copy | Every heading, paragraph, bullet and status matches the current specification exactly |
 | Story states | Three Coming soon statuses; zero story links; no Personality section |
 | Typography controls | 140% changes actual overlay font size and produces visible, named overflow diagnostics |
-| Phone landscape | At 844 × 390 both pages appear automatically and fit; portrait shows guidance; printing still exposes both pages |
+| Mobile Chrome emulation | At 844 × 393, one page with Previous/Next and Home; text/art scaling stays proportional after resize; portrait hides Home and book; printing exposes both pages |
 | Dialog | Keyboard Escape closes it; panel outline toggle works |
 | Print | Two A5 portrait PDF sheets, approximately 420 × 594.96 points, no controls or split pages |
 | Source preservation | Each SVG embeds byte-identical source raster data; both canvases match without stretching or cropping |
@@ -32,7 +32,7 @@ The two page canvases are now exactly 1067 × 1280. The underlying right raster 
 ## Still unverified
 
 - Native iPad Safari/iPadOS, real touch reading comfort, browser toolbar/zoom variations and installed Georgia font metrics. Desktop Chromium uses its available serif fallback. A real-device check remains necessary.
-- Android Chrome on physical hardware. Smaller landscape phones use a scaled book overview with smaller text; portrait has no reading view.
+- Android Chrome on physical hardware. Landscape phones show a single page with proportional text/art scaling and Previous/Next controls; portrait has no reading view.
 - Physical printer margins and Safari/iPad print output. Chromium PDF pagination is verified; real print workflows may require disabling headers/footers and enabling backgrounds.
 - The GitHub Actions workflow and deployed GitHub Pages site have not been run remotely. Local nested-path checks pass. Repository settings were not changed.
 - Snapshot publication/fresh-task environment restoration has not been tested.
@@ -47,3 +47,7 @@ The two page canvases are now exactly 1067 × 1280. The underlying right raster 
 6. Open the print preview: two A5 portrait sheets, backgrounds present and no navigation controls.
 
 If native font wrapping produces a warning, record the viewport, browser, panel and scale. Adjust spacing or approved geometry explicitly; do not hide overflow or lower the minimum font to manufacture a pass.
+
+## Phone resize correction
+
+A later device screenshot showed oversized text and portrait content visible together. The precise cause was not reproduced in desktop mobile emulation. The fix uses a shared fixed canvas for artwork and overlays, disables automatic text inflation, adds explicit portrait hidden states, restores phone landscape paging, and generates matching content-hashed code/styles for production. An actual Android phone and native Safari should still be checked after deployment. The browser suite now includes touch/mobile emulation at device scale factor 3 and verifies proportional overlay geometry across resize; it is not claimed as physical-device testing.

@@ -5,6 +5,8 @@ const tools = document.querySelector('#tools');
 const landscape = matchMedia('(orientation: landscape)');
 const tabletWidth = matchMedia('(min-width: 1000px)');
 const pageElements = [];
+let currentPage = 0;
+const referenceWidth = 494;
 
 function content(region) {
   const fragment = document.createDocumentFragment();
@@ -35,22 +37,38 @@ for (const page of pages) {
   image.src = `./assets/poseidon-${page.id}.svg`; image.width = 1067; image.height = 1280;
   image.alt = page.description; image.addEventListener('load', checkFit);
   image.addEventListener('error', () => { image.dataset.failed = 'true'; checkFit(); });
-  article.append(image);
+  const canvas = document.createElement('div'); canvas.className = 'page-canvas';
+  canvas.append(image);
   for (const region of page.regions) {
     const section = document.createElement('section'); section.className = `region ${region.id}`;
     section.dataset.region = region.id;
     for (const [index, key] of ['left', 'top', 'width', 'height'].entries()) section.style[key] = `${region.box[index]}%`;
     section.append(content(region));
     if (region.bodyInset) section.querySelector('ul').style.paddingTop = `${region.bodyInset}%`;
-    article.append(section);
+    canvas.append(section);
   }
-  book.append(article); pageElements.push(article);
+  article.append(canvas); book.append(article); pageElements.push(article);
 }
 function updateOrientation() {
-  book.classList.add('spread');
-  book.classList.toggle('phone-spread', !tabletWidth.matches);
-  if (!landscape.matches && tools.open) tools.close();
-  requestAnimationFrame(checkFit);
+  const portrait = window.innerHeight > window.innerWidth;
+  document.querySelector('main').hidden = portrait;
+  document.querySelector('.site-header').hidden = portrait;
+  document.querySelector('#rotate-message').hidden = !portrait;
+  book.classList.toggle('spread', tabletWidth.matches);
+  pageElements.forEach((page, index) => { page.hidden = !tabletWidth.matches && index !== currentPage; });
+  document.querySelector('#previous').hidden = tabletWidth.matches;
+  document.querySelector('#next').hidden = tabletWidth.matches;
+  document.querySelector('#previous').disabled = currentPage === 0;
+  document.querySelector('#next').disabled = currentPage === pages.length - 1;
+  document.querySelector('#page-status').textContent = tabletWidth.matches ? 'Pages 1 & 2 of 2' : `Page ${currentPage + 1} of 2`;
+  if (portrait && tools.open) tools.close();
+  requestAnimationFrame(resizePages);
+}
+function resizePages() {
+  for (const page of pageElements) {
+    if (page.clientWidth) page.style.setProperty('--page-scale', page.getBoundingClientRect().width / referenceWidth);
+  }
+  checkFit();
 }
 function checkFit() {
   const failed = [];
@@ -75,7 +93,9 @@ function checkFit() {
   const list = document.querySelector('#overflow-list'); list.replaceChildren();
   for (const title of failed) { const li = document.createElement('li'); li.textContent = `${title}: text exceeds its measured panel.`; list.append(li); }
 }
-document.querySelector('#home').addEventListener('click', () => pageElements[0].focus({ preventScroll: true }));
+document.querySelector('#home').addEventListener('click', () => { currentPage = 0; updateOrientation(); window.scrollTo(0, 0); });
+document.querySelector('#previous').addEventListener('click', () => { currentPage = 0; updateOrientation(); window.scrollTo(0, 0); });
+document.querySelector('#next').addEventListener('click', () => { currentPage = 1; updateOrientation(); window.scrollTo(0, 0); });
 document.querySelector('#open-tools').addEventListener('click', () => tools.showModal());
 document.querySelector('#print').addEventListener('click', () => { tools.close(); window.print(); });
 document.querySelector('#text-scale').addEventListener('input', event => {
@@ -86,5 +106,6 @@ document.querySelector('#text-scale').addEventListener('input', event => {
 document.querySelector('#diagnostics').addEventListener('change', event => book.classList.toggle('diagnostics', event.target.checked));
 landscape.addEventListener('change', updateOrientation);
 tabletWidth.addEventListener('change', updateOrientation);
-new ResizeObserver(checkFit).observe(book);
+for (const page of pageElements) new ResizeObserver(resizePages).observe(page);
+window.addEventListener('resize', updateOrientation);
 updateOrientation();

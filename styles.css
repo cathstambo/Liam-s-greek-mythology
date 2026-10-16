@@ -1,5 +1,6 @@
-:root { color-scheme: light; --text-scale: 1; --ink: #352512; }
+:root { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; color-scheme: light; --text-scale: 1; --ink: #352512; }
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 body { margin: 0; color: #f8eed7; background: radial-gradient(ellipse at top, #176473, #062e3a 70%); font-family: system-ui, sans-serif; min-height: 100svh; }
 button, input { touch-action: manipulation; }
 button { min-height: 44px; padding: 8px 14px; border: 1px solid #d6b96f; border-radius: 8px; background: #f7e8be; color: #163f47; font: 600 15px system-ui, sans-serif; cursor: pointer; }
@@ -8,12 +9,13 @@ button:disabled { opacity: .45; cursor: default; }
 .site-header { height: 56px; padding: 6px 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 h1 { margin: 0; font: bold clamp(16px, 2.4vw, 25px) Georgia, serif; }
 main { padding: 0 12px; }
-.book { display: flex; align-items: flex-start; justify-content: center; gap: 12px; width: min(100%, 850px); margin: 6px auto; }
+.book { display: flex; align-items: flex-start; justify-content: center; gap: 12px; width: min(100%, 660px); margin: 6px auto; }
 .book.spread { width: min(100%, calc((100svh - 124px) * 1.6671875 + 12px)); }
-.page { position: relative; width: 100%; flex: 1 1 0; min-width: 0; aspect-ratio: 1067 / 1280; container-type: inline-size; color: var(--ink); box-shadow: 0 5px 22px #00161e99; }
+.page { position: relative; width: 100%; flex: 1 1 0; min-width: 0; aspect-ratio: 1067 / 1280; color: var(--ink); box-shadow: 0 5px 22px #00161e99; }
 .page[hidden] { display: none; }
+.page-canvas { position: absolute; width: 494px; height: 592.6148078725px; transform-origin: top left; transform: scale(var(--page-scale, 1)); }
 .art { display: block; width: 100%; height: auto; }
-.region { position: absolute; font: calc(clamp(18px, 3.2cqw, 20px) * var(--text-scale))/1.28 Georgia, 'Times New Roman', serif; overflow: visible; }
+.region { position: absolute; font: calc(18px * var(--text-scale))/1.28 Georgia, 'Times New Roman', serif; overflow: visible; }
 .region h2, .region h3 { margin: 0 0 .5em; line-height: 1.15; text-align: center; }
 .region h3 { font-size: 1.15em; }
 .region p { margin: 0 0 .65em; }
@@ -40,7 +42,7 @@ main { padding: 0 12px; }
 .stories h3 { margin-left: 15%; }
 .diagnostics .region { outline: 1px dashed #0063be; }
 .region.overflowing { outline: 2px dashed #ad2c12; }
-.book.phone-spread .region { font-size: calc(3.643725cqw * var(--text-scale)); }
+
 .page-navigation { min-height: 56px; display: flex; justify-content: center; align-items: center; gap: 12px; }
 #page-status { font-size: 14px; text-align: center; }
 dialog { max-width: min(90vw, 640px); max-height: 85svh; overflow: auto; padding: 24px; border: 1px solid #d6b96f; border-radius: 12px; color: #163f47; background: #fff8e9; }
@@ -59,14 +61,19 @@ input[type='checkbox'] { width: 24px; height: 24px; vertical-align: middle; }
   .site-header, .page-navigation, #rotate-message, dialog, .sr-only, noscript { display: none !important; }
   main { padding: 0; margin: 0; }
   .book, .book.spread { display: block; width: 148mm; margin: 0; }
-  .page, .page[hidden] { display: block; width: 148mm; margin: 0; box-shadow: none; break-inside: avoid; break-after: page; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .page, .page[hidden] { display: block !important; width: 148mm; margin: 0; box-shadow: none; break-inside: avoid; break-after: page; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
   .page:last-child { break-after: auto; }
-  .region, .book.phone-spread .region { font-size: 18px; }
+  .region { font-size: 18px; }
+  .page-canvas { transform: scale(1.1323245917); }
+  main[hidden] { display: block !important; }
   .region.overflowing, .diagnostics .region { outline: none; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
 
-#rotate-message { display: none; }
+#rotate-message { display: grid; min-height: 100svh; place-items: center; padding: 32px; text-align: center; }
+#rotate-message h2 { font: bold 28px Georgia, serif; }
+#rotate-message p { line-height: 1.5; }
+.rotate-icon { font-size: 64px; margin: 0; color: #f7d68c; }
 @media screen and (orientation: portrait) {
   body { min-height: 100svh; }
   .site-header, main, dialog { display: none !important; }

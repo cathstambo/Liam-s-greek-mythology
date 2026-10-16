@@ -46,6 +46,7 @@ test('print produces artwork and all copy on two A5 sheets', async ({page}) => {
   await page.goto('./'); await page.emulateMedia({media:'print'});
   await expect(page.locator('.page:visible')).toHaveCount(2);
   await expect(page.locator('.site-header')).not.toBeVisible();
+  await expect(page.locator('.region.overflowing:visible')).toHaveCount(0);
   const pdf = await page.pdf({path:'test-results/poseidon-a5.pdf',preferCSSPageSize:true,printBackground:true});
   expect(pdf.length).toBeGreaterThan(100000);
   const source = pdf.toString('latin1');
@@ -77,18 +78,28 @@ test('all current approved copy appears exactly, with no added sections', async 
   }
 });
 
-test('phone landscape opens the book automatically and portrait only shows guidance', async ({page}) => {
-  await page.setViewportSize({width:844,height:390}); await page.goto('./');
-  await expect(page.locator('.page:visible')).toHaveCount(2);
-  await expect(page.locator('.region.overflowing')).toHaveCount(0);
-  await expect(page.getByRole('button', {name:'Single page',exact:true})).toHaveCount(0);
-  const bounds=await page.locator('#book').boundingBox();
-  expect(bounds.x+bounds.width).toBeLessThanOrEqual(844);
-  expect(bounds.y+bounds.height).toBeLessThanOrEqual(390);
-  await page.setViewportSize({width:390,height:844});
+test('real mobile emulation scales overlays with one-page art and blocks portrait', async ({browser}) => {
+  const context = await browser.newContext({ viewport: {width:844,height:393}, isMobile:true, hasTouch:true, deviceScaleFactor:3 });
+  const page = await context.newPage();
+  await page.goto('http://127.0.0.1:8123/' + encodeURIComponent(require('node:path').basename(process.cwd())) + '/dist/');
+  await expect(page.locator('.page:visible')).toHaveCount(1);
+  await expect(page.locator('.region.overflowing:visible')).toHaveCount(0);
+  const measure = () => page.locator('.page:visible').evaluate(el => ({width:el.getBoundingClientRect().width, textWidth:el.querySelector('.region').getBoundingClientRect().width, textAdjust:getComputedStyle(document.documentElement).textSizeAdjust}));
+  const first = await measure(); expect(first.textAdjust).toBe('100%');
+  await page.locator('#next').click(); await expect(page.locator('#page-status')).toHaveText('Page 2 of 2');
+  await expect(page.locator('.region.overflowing:visible')).toHaveCount(0);
+  await page.screenshot({path:'test-results/phone-landscape.png',fullPage:true});
+  await page.locator('#home').click();
+  await page.setViewportSize({width:700,height:393});
+  const second = await measure();
+  expect(second.textWidth/second.width).toBeCloseTo(first.textWidth/first.width,3);
+  await page.setViewportSize({width:393,height:844});
   await expect(page.locator('.page:visible')).toHaveCount(0);
+  await expect(page.locator('#home')).not.toBeVisible();
   await expect(page.locator('#rotate-message')).toBeVisible();
+  await page.screenshot({path:'test-results/phone-portrait.png',fullPage:true});
   await page.emulateMedia({media:'print'});
   await expect(page.locator('#rotate-message')).not.toBeVisible();
   await expect(page.locator('.page:visible')).toHaveCount(2);
+  await context.close();
 });
