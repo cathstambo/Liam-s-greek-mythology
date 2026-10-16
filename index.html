@@ -11,11 +11,6 @@
   <script type="module" src="./app.js"></script>
 </head>
 <body>
-  <section id="rotate-message" hidden role="status" aria-labelledby="rotate-title">
-    <div><p aria-hidden="true" class="rotate-icon">↻</p>
-    <h2 id="rotate-title">Turn your device sideways</h2>
-    <p>Liam’s mythology book is best explored in landscape.</p></div>
-  </section>
   <header class="site-header">
     <h1>Liam's Greek Mythology Corner</h1>
     <button id="home" type="button" aria-label="Home — return to Poseidon's first page">Home</button>
@@ -26,6 +21,7 @@
       <button id="previous" type="button">← Previous page</button>
       <span id="page-status">Pages 1 &amp; 2 of 2</span>
       <button id="next" type="button">Next page →</button>
+      <button id="view-mode" type="button" aria-pressed="false" aria-controls="book">Two pages</button>
       <button id="open-tools" type="button">Layout checks<span id="fit-indicator" aria-hidden="true"></span></button>
     </nav>
 
@@ -34,7 +30,8 @@
   </main>
   <dialog id="tools" aria-labelledby="tools-title">
     <h2 id="tools-title">Typography &amp; layout checks</h2>
-    <p>Test controls for reviewing this prototype. Text never shrinks automatically to fit a panel.</p>
+    <p>Artwork and text scale together. These test controls enlarge the text independently to assess its limits.</p>
+    <p id="font-status" role="status"></p>
     <label for="text-scale">Text scale <output id="scale-value">100%</output></label>
     <input id="text-scale" type="range" min="100" max="140" step="10" value="100">
     <label><input id="diagnostics" type="checkbox"> Show text-panel bounds</label>

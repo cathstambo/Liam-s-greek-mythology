@@ -6,6 +6,8 @@ const landscape = matchMedia('(orientation: landscape)');
 const tabletWidth = matchMedia('(min-width: 1000px)');
 const pageElements = [];
 let currentPage = 0;
+let landscapeChoice = null;
+let fontsUnavailable = false;
 const referenceWidth = 494;
 
 function content(region) {
@@ -51,18 +53,19 @@ for (const page of pages) {
 }
 function updateOrientation() {
   const portrait = window.innerHeight > window.innerWidth;
-  document.querySelector('main').hidden = portrait;
-  document.querySelector('.site-header').hidden = portrait;
-  document.querySelector('#rotate-message').hidden = !portrait;
-  book.classList.toggle('spread', tabletWidth.matches);
-  pageElements.forEach((page, index) => { page.hidden = !tabletWidth.matches && index !== currentPage; });
-  document.querySelector('#previous').hidden = tabletWidth.matches;
-  document.querySelector('#next').hidden = tabletWidth.matches;
+  const twoPages = !portrait && (landscapeChoice ?? tabletWidth.matches);
+  book.classList.toggle('spread', twoPages);
+  pageElements.forEach((page, index) => { page.hidden = !twoPages && index !== currentPage; });
+  document.querySelector('#previous').hidden = twoPages;
+  document.querySelector('#next').hidden = twoPages;
   document.querySelector('#previous').disabled = currentPage === 0;
   document.querySelector('#next').disabled = currentPage === pages.length - 1;
-  document.querySelector('#page-status').textContent = tabletWidth.matches ? 'Pages 1 & 2 of 2' : `Page ${currentPage + 1} of 2`;
-  if (portrait && tools.open) tools.close();
-  requestAnimationFrame(resizePages);
+  document.querySelector('#page-status').textContent = twoPages ? 'Pages 1 & 2 of 2' : `Page ${currentPage + 1} of 2`;
+  const toggle = document.querySelector('#view-mode');
+  toggle.hidden = portrait;
+  toggle.textContent = twoPages ? 'Single page' : 'Two pages';
+  toggle.setAttribute('aria-pressed', String(twoPages));
+  resizePages();
 }
 function resizePages() {
   for (const page of pageElements) {
@@ -84,11 +87,11 @@ function checkFit() {
     if (overflow) failed.push(region.querySelector('h2,h3').textContent);
   }
   const broken = book.querySelector('img[data-failed]');
-  const message = broken ? 'Page artwork failed to load. Check the asset files or reload.' : failed.length
+  const message = fontsUnavailable ? 'The book font could not load. Check your connection and reload; text fit may differ.' : broken ? 'Page artwork failed to load. Check the asset files or reload.' : failed.length
     ? `Layout review: ${failed.join('; ')} cannot fit at this text size. Review the panel dimensions or restore 100% text scale.`
     : 'All visible text panels fit at this size.';
   for (const id of ['#fit-status', '#fit-announcement']) document.querySelector(id).textContent = message;
-  const indicator = document.querySelector('#fit-indicator'); indicator.textContent = failed.length || broken ? ' ⚠' : '';
+  const indicator = document.querySelector('#fit-indicator'); indicator.textContent = failed.length || broken || fontsUnavailable ? ' ⚠' : '';
   document.querySelector('#open-tools').setAttribute('aria-label', `Layout checks. ${message}`);
   const list = document.querySelector('#overflow-list'); list.replaceChildren();
   for (const title of failed) { const li = document.createElement('li'); li.textContent = `${title}: text exceeds its measured panel.`; list.append(li); }
@@ -96,6 +99,7 @@ function checkFit() {
 document.querySelector('#home').addEventListener('click', () => { currentPage = 0; updateOrientation(); window.scrollTo(0, 0); });
 document.querySelector('#previous').addEventListener('click', () => { currentPage = 0; updateOrientation(); window.scrollTo(0, 0); });
 document.querySelector('#next').addEventListener('click', () => { currentPage = 1; updateOrientation(); window.scrollTo(0, 0); });
+document.querySelector('#view-mode').addEventListener('click', () => { landscapeChoice = !book.classList.contains('spread'); updateOrientation(); });
 document.querySelector('#open-tools').addEventListener('click', () => tools.showModal());
 document.querySelector('#print').addEventListener('click', () => { tools.close(); window.print(); });
 document.querySelector('#text-scale').addEventListener('input', event => {
@@ -109,3 +113,10 @@ tabletWidth.addEventListener('change', updateOrientation);
 for (const page of pageElements) new ResizeObserver(resizePages).observe(page);
 window.addEventListener('resize', updateOrientation);
 updateOrientation();
+
+Promise.all([document.fonts.load('18px "Book Serif"'), document.fonts.load('bold 18px "Book Serif"')]).then(results => {
+  fontsUnavailable = results.some(faces => !faces.length);
+}).catch(() => { fontsUnavailable = true; }).finally(() => {
+  document.querySelector('#font-status').textContent = fontsUnavailable ? 'Book font unavailable — fit needs review.' : 'Bundled book font loaded.';
+  resizePages();
+});

@@ -1,4 +1,4 @@
-import { mkdir, rm, copyFile, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, rm, copyFile, cp, readFile, writeFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 const version = text => createHash('sha256').update(text).digest('hex').slice(0,12);
 await rm('dist', {recursive:true,force:true});
@@ -14,3 +14,5 @@ for (const [name,content] of [[pagesName,pages],[appName,app],[cssName,css],['in
 await copyFile('.nojekyll','dist/.nojekyll');
 for(const side of ['left','right']) await copyFile(`assets/poseidon-${side}.svg`,`dist/assets/poseidon-${side}.svg`);
 console.log('Built dist/ with matching versioned code/styles and relative project URLs.');
+
+await cp('assets/fonts','dist/assets/fonts',{recursive:true});

@@ -29,12 +29,12 @@ Tests serve the built site beneath a project subpath. Run the build before testi
 
 ## Use the prototype
 
-- Landscape on tablets (at least 1000 CSS px wide): two-page spread fitted to the viewport. Landscape phones: one page at a time with Previous/Next and Home; the larger page may scroll vertically.
-- Portrait: a “Turn your device sideways” message replaces the book. Browsers are not forced to rotate.
-- Home returns to the first page. Portrait never shows the book or Home controls.
+- Portrait: one page at a time, with Previous/Next and Home.
+- Landscape: choose **Single page** or **Two pages**. Tablets default to the spread, phones to one page. The landscape choice survives rotation for the current session.
+- Home returns to the first page in either orientation.
 - Layout checks opens test-only typography scaling (100–140%), panel outlines, overflow reports and Print.
 - Stories are labelled Coming soon and are not links.
-- Text and artwork share a fixed reference canvas and scale together. Browser text inflation is disabled for the book layout. Increasing the test scale intentionally reveals limits; text is not clipped.
+- Text and artwork share a fixed reference canvas and scale together. A bundled, locally served Liberation Serif font keeps wrapping consistent across devices; its SIL Open Font License is in `assets/fonts/LICENSE.txt`. The biography has extra bottom clearance. Browser text inflation is disabled for the book layout. Increasing the test scale intentionally reveals limits; overflow is visibly reported, never clipped.
 
 ## Publish with GitHub Pages
 
@@ -49,7 +49,7 @@ All application asset/module URLs are relative; no repository name is hard-coded
 
 ## Verify on a real iPad
 
-Open the deployed HTTPS site in Safari at normal browser zoom. Test both phone pages with Previous/Next in landscape, the tablet spread, portrait rotation message, Home, Layout checks, orientation changes and printing. Confirm readable text, no artwork overlap, and no warning at 100% scale. Safari and installed fonts can wrap differently from desktop Chromium. [Validation record](docs/VALIDATION.md) separates completed automated checks from device checks still outstanding.
+Open the deployed HTTPS site in Safari at normal browser zoom. Test portrait paging, both landscape view choices, Home, Layout checks, orientation changes and printing. Confirm readable text, no artwork overlap, and no warning at 100% scale. The same font is supplied to every browser, but native Safari still needs a device check. [Validation record](docs/VALIDATION.md) separates completed automated checks from device checks still outstanding.
 
 ## Print
 

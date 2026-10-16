@@ -1,3 +1,5 @@
+@font-face { font-family: 'Book Serif'; src: url('./assets/fonts/LiberationSerif-Regular.ttf') format('truetype'); font-style: normal; font-weight: 400; font-display: block; }
+@font-face { font-family: 'Book Serif'; src: url('./assets/fonts/LiberationSerif-Bold.ttf') format('truetype'); font-style: normal; font-weight: 700; font-display: block; }
 :root { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; color-scheme: light; --text-scale: 1; --ink: #352512; }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
@@ -15,7 +17,7 @@ main { padding: 0 12px; }
 .page[hidden] { display: none; }
 .page-canvas { position: absolute; width: 494px; height: 592.6148078725px; transform-origin: top left; transform: scale(var(--page-scale, 1)); }
 .art { display: block; width: 100%; height: auto; }
-.region { position: absolute; font: calc(18px * var(--text-scale))/1.28 Georgia, 'Times New Roman', serif; overflow: visible; }
+.region { position: absolute; font: calc(18px * var(--text-scale))/1.28 'Book Serif', Georgia, 'Times New Roman', serif; overflow: visible; }
 .region h2, .region h3 { margin: 0 0 .5em; line-height: 1.15; text-align: center; }
 .region h3 { font-size: 1.15em; }
 .region p { margin: 0 0 .65em; }
@@ -23,9 +25,9 @@ main { padding: 0 12px; }
 .title { display: flex; flex-direction: column; justify-content: center; text-align: center; }
 .title h2 { font-size: 1.333333em; line-height: 1.05; margin: 0; }
 .title p { font-size: 1em; line-height: 1.05; margin: 0; }
-.biography { line-height: 1.2; }
+.biography { line-height: 1.18; }
 .biography h3 { margin-bottom: .3em; }
-.biography p { margin-bottom: .35em; }
+.biography p { margin-bottom: .3em; }
 .region[class*='-card'] { text-align: center; line-height: 1.15; }
 .region[class*='-card'] h3 { margin-bottom: .1em; }
 .region ul { padding-left: 1.1em; margin: 0; }
@@ -69,16 +71,3 @@ input[type='checkbox'] { width: 24px; height: 24px; vertical-align: middle; }
   .region.overflowing, .diagnostics .region { outline: none; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
-
-#rotate-message { display: grid; min-height: 100svh; place-items: center; padding: 32px; text-align: center; }
-#rotate-message h2 { font: bold 28px Georgia, serif; }
-#rotate-message p { line-height: 1.5; }
-.rotate-icon { font-size: 64px; margin: 0; color: #f7d68c; }
-@media screen and (orientation: portrait) {
-  body { min-height: 100svh; }
-  .site-header, main, dialog { display: none !important; }
-  #rotate-message { display: grid; min-height: 100svh; place-items: center; padding: 32px; text-align: center; }
-  #rotate-message h2 { font: bold 28px Georgia, serif; }
-  #rotate-message p { line-height: 1.5; }
-  .rotate-icon { font-size: 64px; margin: 0; color: #f7d68c; }
-}
