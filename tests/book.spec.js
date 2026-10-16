@@ -76,3 +76,23 @@ test('all current approved copy appears exactly, with no added sections', async 
     expect(actual, id).toEqual(text);
   }
 });
+
+test('phone can choose a fitting book overview and return to single-page reading', async ({page}) => {
+  await page.setViewportSize({width:844,height:390}); await page.goto('./');
+  await expect(page.locator('.page:visible')).toHaveCount(1);
+  await page.getByRole('button', {name:'Book spread',exact:true}).click();
+  await expect(page.locator('.page:visible')).toHaveCount(2);
+  await expect(page.locator('#view-note')).toBeVisible();
+  await expect(page.locator('.region.overflowing')).toHaveCount(0);
+  expect(await page.locator('.biography').evaluate(e=>parseFloat(getComputedStyle(e).fontSize))).toBeLessThan(18);
+  const bounds=await page.locator('#book').boundingBox();
+  expect(bounds.x+bounds.width).toBeLessThanOrEqual(844);
+  expect(bounds.y+bounds.height).toBeLessThanOrEqual(390);
+  await page.setViewportSize({width:390,height:844});
+  await expect(page.locator('.page:visible')).toHaveCount(2);
+  await page.getByRole('button', {name:'Single page',exact:true}).click();
+  await expect(page.locator('.page:visible')).toHaveCount(1);
+  await expect(page.locator('#view-note')).not.toBeVisible();
+  expect(await page.locator('.biography').evaluate(e=>parseFloat(getComputedStyle(e).fontSize))).toBe(18);
+  await page.locator('#next').click(); await expect(page.locator('#page-status')).toHaveText('Page 2 of 2');
+});

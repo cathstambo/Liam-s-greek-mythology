@@ -3,7 +3,7 @@ import { pages } from './pages.js';
 const book = document.querySelector('#book');
 const tools = document.querySelector('#tools');
 let currentPage = 0;
-let forceSingle = false;
+let viewOverride = null;
 let printMode = false;
 const spread = matchMedia('(min-width: 1000px) and (orientation: landscape)');
 const pageElements = [];
@@ -48,16 +48,18 @@ for (const page of pages) {
   }
   book.append(article); pageElements.push(article);
 }
-function isSpread() { return spread.matches && !forceSingle; }
+function isSpread() { return viewOverride ?? spread.matches; }
 function showPage(index = currentPage, focus = false) {
   currentPage = Math.max(0, Math.min(pages.length - 1, index));
   book.classList.toggle('spread', isSpread());
+  book.classList.toggle('phone-spread', isSpread() && !spread.matches);
   pageElements.forEach((page, i) => { page.hidden = !printMode && !isSpread() && i !== currentPage; });
   document.querySelector('#previous').disabled = isSpread() || currentPage === 0;
   document.querySelector('#next').disabled = isSpread() || currentPage === pages.length - 1;
   document.querySelector('#page-status').textContent = isSpread() ? 'Pages 1 & 2 of 2' : `Page ${currentPage + 1} of 2`;
-  document.querySelector('#single-page').textContent = forceSingle ? 'Use automatic layout' : 'Show one page';
-  document.querySelector('#single-page').setAttribute('aria-pressed', String(forceSingle));
+  document.querySelector('#view-mode').textContent = isSpread() ? 'Single page' : 'Book spread';
+  document.querySelector('#view-mode').setAttribute('aria-pressed', String(isSpread()));
+  document.querySelector('#view-note').hidden = !isSpread() || spread.matches;
   if (focus) pageElements[currentPage].focus({ preventScroll: true });
   requestAnimationFrame(checkFit);
 }
@@ -88,7 +90,7 @@ document.querySelector('#previous').addEventListener('click', () => showPage(cur
 document.querySelector('#next').addEventListener('click', () => showPage(currentPage + 1, true));
 document.querySelector('#home').addEventListener('click', () => showPage(0, true));
 document.querySelector('#open-tools').addEventListener('click', () => tools.showModal());
-document.querySelector('#single-page').addEventListener('click', () => { forceSingle = !forceSingle; showPage(); });
+document.querySelector('#view-mode').addEventListener('click', () => { viewOverride = !isSpread(); showPage(); });
 document.querySelector('#print').addEventListener('click', () => { tools.close(); window.print(); });
 document.querySelector('#text-scale').addEventListener('input', event => {
   document.documentElement.style.setProperty('--text-scale', event.target.value / 100);

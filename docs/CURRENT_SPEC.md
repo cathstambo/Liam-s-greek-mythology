@@ -70,9 +70,9 @@ Body size is `clamp(18px, 3.2cqw, 20px)` at 100% test scale. Font stack: Georgia
 
 Integration also uses 1.2 line height and 0.35 em paragraph gaps in the left biography, and 1.15 line height with a 0.1 em heading gap in fact cards. These spacing refinements resolve previous Chromium 18 px failures without changing art, rectangles, approved wording or the minimum body size. This supersedes earlier reports using looser spacing; native device comfort is still unverified.
 
-Both pages use the same canvas, a 12 px gutter and at least 12 px horizontal outer margins. A compact 56 px header and 56 px navigation row fit outside the spread. Width is constrained by both viewport width and height. Landscape at 1000 CSS px or wider shows the spread. Other sizes show one page; a testing override can also show one page. At very small sizes, text may not fit and is visibly flagged, never shrunk or hidden.
+Both pages use the same canvas, a 12 px gutter and at least 12 px horizontal outer margins. A compact 56 px header and 56 px navigation row fit outside the spread. Width is constrained by both viewport width and height. Landscape at 1000 CSS px or wider shows the spread. Other sizes show one page; the visible Book spread / Single page toggle overrides this in either direction for the current session. On phones, explicitly chosen Book spread scales the text with the artwork as an overview, below the normal 18 px floor, and displays a note recommending Single page for reading. This exception was approved when the user requested phone book viewing. At very small sizes, text may not fit and is visibly flagged, never shrunk or hidden.
 
-No separate comfortable-reading view was added. Diagnostics stay in a modal so they do not consume book space. Increasing scale may deliberately overflow a panel and marks it for review.
+No separate comfortable-reading view was added. The selected page view is retained across rotation but resets to automatic on reload. Diagnostics stay in a modal so they do not consume book space. Increasing scale may deliberately overflow a panel and marks it for review.
 
 ## Printing and publication
 

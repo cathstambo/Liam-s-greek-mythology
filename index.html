@@ -21,8 +21,10 @@
       <button id="previous" type="button">← Previous page</button>
       <span id="page-status" role="status" aria-live="polite"></span>
       <button id="next" type="button">Next page →</button>
+      <button id="view-mode" type="button" aria-pressed="false" aria-controls="book">Book spread</button>
       <button id="open-tools" type="button">Layout checks<span id="fit-indicator" aria-hidden="true"></span></button>
     </nav>
+    <p id="view-note" hidden>Book overview uses smaller text. Choose Single page for easier reading.</p>
     <p id="fit-announcement" class="sr-only" role="status" aria-live="polite"></p>
     <noscript><p>This illustrated prototype needs JavaScript for its editable text and navigation.</p></noscript>
   </main>
@@ -34,8 +36,6 @@
     <label><input id="diagnostics" type="checkbox"> Show text-panel bounds</label>
     <p id="fit-status"></p>
     <ul id="overflow-list"></ul>
-    <p>On a smaller screen, open one page at a time for more space.</p>
-    <button id="single-page" type="button" aria-pressed="false">Show one page</button>
     <button id="print" type="button">Print A5 pages</button>
     <form method="dialog"><button>Close checks</button></form>
   </dialog>

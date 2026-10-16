@@ -31,10 +31,11 @@ Tests serve the built site beneath a project subpath. Run the build before testi
 
 - Landscape at 1000 CSS px or wider: both pages together, fitted to available viewport height and width, with Home and controls outside the artwork.
 - Portrait or narrower screens: one page at a time, with Previous/Next and keyboard arrows. No forced rotation.
+- **Book spread / Single page** is always available beside navigation. It overrides the automatic breakpoint for the current session, including after rotation. On small phones, Book spread is a scaled overview with smaller text and a visible reading note; choose Single page for larger text.
 - Home returns to Poseidon's first page; the future encyclopedia has not been invented.
-- Layout checks opens test-only typography scaling (100–140%), panel outlines, overflow reports, a one-page override and Print.
+- Layout checks opens test-only typography scaling (100–140%), panel outlines, overflow reports, Print.
 - Stories are labelled Coming soon and are not links.
-- Text starts at 18 CSS px and rises to 20 px on larger pages. Increasing test scale intentionally reveals limits; the app does not silently shrink or clip text. Very narrow devices may show fit warnings.
+- In the automatic and single-page layouts, text starts at 18 CSS px and rises to 20 px on larger pages. Increasing test scale intentionally reveals limits; the app does not silently shrink or clip text. Very narrow devices may show fit warnings.
 
 ## Publish with GitHub Pages
 

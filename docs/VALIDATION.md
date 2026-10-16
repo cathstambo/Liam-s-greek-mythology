@@ -4,7 +4,7 @@ Recorded 16 October 2026. This is the current integrated application, replacing 
 
 ## Completed
 
-`npm run build` succeeds. **7 Playwright Chromium tests pass**, serving the production `dist/` at a nested HTTP project path rather than `file://`.
+`npm run build` succeeds. **8 Playwright Chromium tests pass**, serving the production `dist/` at a nested HTTP project path rather than `file://`.
 
 | Check | Result |
 |---|---|
@@ -16,6 +16,7 @@ Recorded 16 October 2026. This is the current integrated application, replacing 
 | Copy | Every heading, paragraph, bullet and status matches the current specification exactly |
 | Story states | Three Coming soon statuses; zero story links; no Personality section |
 | Typography controls | 140% changes actual overlay font size and produces visible, named overflow diagnostics |
+| Phone view toggle | At 844 × 390, choose two-page overview; choice survives rotation; switch back to 18 px single-page text and navigate |
 | Dialog | Keyboard Escape closes it; panel outline toggle works |
 | Print | Two A5 portrait PDF sheets, approximately 420 × 594.96 points, no controls or split pages |
 | Source preservation | Each SVG embeds byte-identical source raster data; both canvases match without stretching or cropping |
