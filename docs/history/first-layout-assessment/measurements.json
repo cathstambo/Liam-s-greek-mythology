@@ -1,0 +1,848 @@
+[
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "pageWidth": 488,
+    "panels": [
+      {
+        "id": "title",
+        "title": "POSEIDON",
+        "box": {
+          "width": 239,
+          "height": 60
+        },
+        "maxFittingBasePx": 10.5,
+        "fitAt16": false,
+        "neededHeightAt16": 78,
+        "text": "POSEIDON\n\nGod of the Sea\n\nSay it: puh-SY-dun"
+      },
+      {
+        "id": "biography",
+        "title": "Who is Poseidon?",
+        "box": {
+          "width": 175,
+          "height": 172
+        },
+        "maxFittingBasePx": 10.1,
+        "fitAt16": false,
+        "neededHeightAt16": 394,
+        "text": "Who is Poseidon?\n\nPoseidon is one of the mightiest gods in Greek mythology! He rules the seas and oceans, carrying a powerful golden trident.\n\nWhen Poseidon is happy, the sea can be calm and peaceful. But when he gets angry, watch out! He can create enormous waves, wild storms and even earthquakes.\n\nHe lives in a magnificent palace beneath the sea, surrounded by amazing sea creatures."
+      },
+      {
+        "id": "powers-card",
+        "title": "Powers",
+        "box": {
+          "width": 83,
+          "height": 93
+        },
+        "maxFittingBasePx": 14,
+        "fitAt16": false,
+        "neededHeightAt16": 107,
+        "text": "Powers\n\nSeas, storms and earthquakes"
+      },
+      {
+        "id": "symbol-card",
+        "title": "Symbol",
+        "box": {
+          "width": 87,
+          "height": 100
+        },
+        "maxFittingBasePx": 18.6,
+        "fitAt16": true,
+        "neededHeightAt16": 100,
+        "text": "Symbol\n\nHis mighty trident"
+      },
+      {
+        "id": "home-card",
+        "title": "Home",
+        "box": {
+          "width": 87,
+          "height": 100
+        },
+        "maxFittingBasePx": 15.1,
+        "fitAt16": false,
+        "neededHeightAt16": 107,
+        "text": "Home\n\nA palace beneath the sea"
+      },
+      {
+        "id": "animal-card",
+        "title": "Sacred Animal",
+        "box": {
+          "width": 85,
+          "height": 100
+        },
+        "maxFittingBasePx": 21.5,
+        "fitAt16": true,
+        "neededHeightAt16": 100,
+        "text": "Sacred Animal\n\nThe horse"
+      },
+      {
+        "id": "special-powers",
+        "title": "Special Powers",
+        "box": {
+          "width": 224,
+          "height": 112
+        },
+        "maxFittingBasePx": 11.4,
+        "fitAt16": false,
+        "neededHeightAt16": 179,
+        "text": "Special Powers\n\nPoseidon can whip up enormous waves, summon fierce storms and shake the earth with earthquakes!\n\nWith a strike of his mighty trident, he can turn a peaceful sea into a dangerous adventure."
+      },
+      {
+        "id": "family",
+        "title": "Family",
+        "box": {
+          "width": 196,
+          "height": 112
+        },
+        "maxFittingBasePx": 11,
+        "fitAt16": false,
+        "neededHeightAt16": 220,
+        "text": "Family\n\nPoseidon's brothers are Zeus, king of the gods, and Hades, ruler of the Underworld.\n\nHis wife is Amphitrite, a beautiful sea goddess, and one of his sons is Polyphemus, a giant Cyclops with just one eye!"
+      },
+      {
+        "id": "personality",
+        "title": "Personality",
+        "box": {
+          "width": 175,
+          "height": 108
+        },
+        "maxFittingBasePx": 10.1,
+        "fitAt16": false,
+        "neededHeightAt16": 220,
+        "text": "Personality\n\nPoseidon is powerful, proud and very quick to lose his temper!\n\nHe can be generous and helpful, but if someone makes him angry, they might find themselves in some very stormy trouble."
+      },
+      {
+        "id": "did-you-know",
+        "title": "Did You Know?",
+        "box": {
+          "width": 102,
+          "height": 108
+        },
+        "maxFittingBasePx": 8.7,
+        "fitAt16": false,
+        "neededHeightAt16": 327,
+        "text": "Did You Know?\n\nThe ancient Greeks believed Poseidon was also the god of horses!\n\nSome myths say he created the very first horse. Imagine having a sea god to thank for ponies!"
+      },
+      {
+        "id": "stories",
+        "title": "Explore His Stories",
+        "box": {
+          "width": 215,
+          "height": 138
+        },
+        "maxFittingBasePx": 11.5,
+        "fitAt16": false,
+        "neededHeightAt16": 193,
+        "text": "Explore His Stories\nOdysseus and the Cyclops\nComing soon\nPoseidon and Athena\nComing soon\nThe Adventures of Odysseus\nComing soon"
+      }
+    ]
+  },
+  {
+    "viewport": {
+      "width": 1180,
+      "height": 820
+    },
+    "pageWidth": 566,
+    "panels": [
+      {
+        "id": "title",
+        "title": "POSEIDON",
+        "box": {
+          "width": 277,
+          "height": 70
+        },
+        "maxFittingBasePx": 12.2,
+        "fitAt16": false,
+        "neededHeightAt16": 83,
+        "text": "POSEIDON\n\nGod of the Sea\n\nSay it: puh-SY-dun"
+      },
+      {
+        "id": "biography",
+        "title": "Who is Poseidon?",
+        "box": {
+          "width": 203,
+          "height": 199
+        },
+        "maxFittingBasePx": 11.7,
+        "fitAt16": false,
+        "neededHeightAt16": 374,
+        "text": "Who is Poseidon?\n\nPoseidon is one of the mightiest gods in Greek mythology! He rules the seas and oceans, carrying a powerful golden trident.\n\nWhen Poseidon is happy, the sea can be calm and peaceful. But when he gets angry, watch out! He can create enormous waves, wild storms and even earthquakes.\n\nHe lives in a magnificent palace beneath the sea, surrounded by amazing sea creatures."
+      },
+      {
+        "id": "powers-card",
+        "title": "Powers",
+        "box": {
+          "width": 97,
+          "height": 108
+        },
+        "maxFittingBasePx": 16.3,
+        "fitAt16": true,
+        "neededHeightAt16": 108,
+        "text": "Powers\n\nSeas, storms and earthquakes"
+      },
+      {
+        "id": "symbol-card",
+        "title": "Symbol",
+        "box": {
+          "width": 101,
+          "height": 116
+        },
+        "maxFittingBasePx": 21.6,
+        "fitAt16": true,
+        "neededHeightAt16": 116,
+        "text": "Symbol\n\nHis mighty trident"
+      },
+      {
+        "id": "home-card",
+        "title": "Home",
+        "box": {
+          "width": 101,
+          "height": 116
+        },
+        "maxFittingBasePx": 17.5,
+        "fitAt16": true,
+        "neededHeightAt16": 116,
+        "text": "Home\n\nA palace beneath the sea"
+      },
+      {
+        "id": "animal-card",
+        "title": "Sacred Animal",
+        "box": {
+          "width": 99,
+          "height": 116
+        },
+        "maxFittingBasePx": 24.9,
+        "fitAt16": true,
+        "neededHeightAt16": 116,
+        "text": "Sacred Animal\n\nThe horse"
+      },
+      {
+        "id": "special-powers",
+        "title": "Special Powers",
+        "box": {
+          "width": 260,
+          "height": 130
+        },
+        "maxFittingBasePx": 13.2,
+        "fitAt16": false,
+        "neededHeightAt16": 179,
+        "text": "Special Powers\n\nPoseidon can whip up enormous waves, summon fierce storms and shake the earth with earthquakes!\n\nWith a strike of his mighty trident, he can turn a peaceful sea into a dangerous adventure."
+      },
+      {
+        "id": "family",
+        "title": "Family",
+        "box": {
+          "width": 227,
+          "height": 130
+        },
+        "maxFittingBasePx": 12.7,
+        "fitAt16": false,
+        "neededHeightAt16": 200,
+        "text": "Family\n\nPoseidon's brothers are Zeus, king of the gods, and Hades, ruler of the Underworld.\n\nHis wife is Amphitrite, a beautiful sea goddess, and one of his sons is Polyphemus, a giant Cyclops with just one eye!"
+      },
+      {
+        "id": "personality",
+        "title": "Personality",
+        "box": {
+          "width": 203,
+          "height": 125
+        },
+        "maxFittingBasePx": 11.7,
+        "fitAt16": false,
+        "neededHeightAt16": 220,
+        "text": "Personality\n\nPoseidon is powerful, proud and very quick to lose his temper!\n\nHe can be generous and helpful, but if someone makes him angry, they might find themselves in some very stormy trouble."
+      },
+      {
+        "id": "did-you-know",
+        "title": "Did You Know?",
+        "box": {
+          "width": 119,
+          "height": 126
+        },
+        "maxFittingBasePx": 10.2,
+        "fitAt16": false,
+        "neededHeightAt16": 265,
+        "text": "Did You Know?\n\nThe ancient Greeks believed Poseidon was also the god of horses!\n\nSome myths say he created the very first horse. Imagine having a sea god to thank for ponies!"
+      },
+      {
+        "id": "stories",
+        "title": "Explore His Stories",
+        "box": {
+          "width": 249,
+          "height": 160
+        },
+        "maxFittingBasePx": 13.3,
+        "fitAt16": false,
+        "neededHeightAt16": 193,
+        "text": "Explore His Stories\nOdysseus and the Cyclops\nComing soon\nPoseidon and Athena\nComing soon\nThe Adventures of Odysseus\nComing soon"
+      }
+    ]
+  },
+  {
+    "viewport": {
+      "width": 1366,
+      "height": 1024
+    },
+    "pageWidth": 659,
+    "panels": [
+      {
+        "id": "title",
+        "title": "POSEIDON",
+        "box": {
+          "width": 323,
+          "height": 81
+        },
+        "maxFittingBasePx": 14,
+        "fitAt16": false,
+        "neededHeightAt16": 88,
+        "text": "POSEIDON\n\nGod of the Sea\n\nSay it: puh-SY-dun"
+      },
+      {
+        "id": "biography",
+        "title": "Who is Poseidon?",
+        "box": {
+          "width": 236,
+          "height": 232
+        },
+        "maxFittingBasePx": 13.7,
+        "fitAt16": false,
+        "neededHeightAt16": 312,
+        "text": "Who is Poseidon?\n\nPoseidon is one of the mightiest gods in Greek mythology! He rules the seas and oceans, carrying a powerful golden trident.\n\nWhen Poseidon is happy, the sea can be calm and peaceful. But when he gets angry, watch out! He can create enormous waves, wild storms and even earthquakes.\n\nHe lives in a magnificent palace beneath the sea, surrounded by amazing sea creatures."
+      },
+      {
+        "id": "powers-card",
+        "title": "Powers",
+        "box": {
+          "width": 113,
+          "height": 126
+        },
+        "maxFittingBasePx": 18.9,
+        "fitAt16": true,
+        "neededHeightAt16": 126,
+        "text": "Powers\n\nSeas, storms and earthquakes"
+      },
+      {
+        "id": "symbol-card",
+        "title": "Symbol",
+        "box": {
+          "width": 117,
+          "height": 135
+        },
+        "maxFittingBasePx": 25.1,
+        "fitAt16": true,
+        "neededHeightAt16": 135,
+        "text": "Symbol\n\nHis mighty trident"
+      },
+      {
+        "id": "home-card",
+        "title": "Home",
+        "box": {
+          "width": 117,
+          "height": 135
+        },
+        "maxFittingBasePx": 20.3,
+        "fitAt16": true,
+        "neededHeightAt16": 135,
+        "text": "Home\n\nA palace beneath the sea"
+      },
+      {
+        "id": "animal-card",
+        "title": "Sacred Animal",
+        "box": {
+          "width": 115,
+          "height": 135
+        },
+        "maxFittingBasePx": 29,
+        "fitAt16": true,
+        "neededHeightAt16": 135,
+        "text": "Sacred Animal\n\nThe horse"
+      },
+      {
+        "id": "special-powers",
+        "title": "Special Powers",
+        "box": {
+          "width": 303,
+          "height": 152
+        },
+        "maxFittingBasePx": 15.4,
+        "fitAt16": false,
+        "neededHeightAt16": 159,
+        "text": "Special Powers\n\nPoseidon can whip up enormous waves, summon fierce storms and shake the earth with earthquakes!\n\nWith a strike of his mighty trident, he can turn a peaceful sea into a dangerous adventure."
+      },
+      {
+        "id": "family",
+        "title": "Family",
+        "box": {
+          "width": 264,
+          "height": 152
+        },
+        "maxFittingBasePx": 14.8,
+        "fitAt16": false,
+        "neededHeightAt16": 200,
+        "text": "Family\n\nPoseidon's brothers are Zeus, king of the gods, and Hades, ruler of the Underworld.\n\nHis wife is Amphitrite, a beautiful sea goddess, and one of his sons is Polyphemus, a giant Cyclops with just one eye!"
+      },
+      {
+        "id": "personality",
+        "title": "Personality",
+        "box": {
+          "width": 236,
+          "height": 145
+        },
+        "maxFittingBasePx": 13.6,
+        "fitAt16": false,
+        "neededHeightAt16": 179,
+        "text": "Personality\n\nPoseidon is powerful, proud and very quick to lose his temper!\n\nHe can be generous and helpful, but if someone makes him angry, they might find themselves in some very stormy trouble."
+      },
+      {
+        "id": "did-you-know",
+        "title": "Did You Know?",
+        "box": {
+          "width": 138,
+          "height": 146
+        },
+        "maxFittingBasePx": 11.8,
+        "fitAt16": false,
+        "neededHeightAt16": 245,
+        "text": "Did You Know?\n\nThe ancient Greeks believed Poseidon was also the god of horses!\n\nSome myths say he created the very first horse. Imagine having a sea god to thank for ponies!"
+      },
+      {
+        "id": "stories",
+        "title": "Explore His Stories",
+        "box": {
+          "width": 290,
+          "height": 186
+        },
+        "maxFittingBasePx": 15.5,
+        "fitAt16": false,
+        "neededHeightAt16": 193,
+        "text": "Explore His Stories\nOdysseus and the Cyclops\nComing soon\nPoseidon and Athena\nComing soon\nThe Adventures of Odysseus\nComing soon"
+      }
+    ]
+  },
+  {
+    "viewport": {
+      "width": 768,
+      "height": 1024
+    },
+    "pageWidth": 732,
+    "panels": [
+      {
+        "id": "title",
+        "title": "POSEIDON",
+        "box": {
+          "width": 359,
+          "height": 90
+        },
+        "maxFittingBasePx": 15.5,
+        "fitAt16": false,
+        "neededHeightAt16": 93,
+        "text": "POSEIDON\n\nGod of the Sea\n\nSay it: puh-SY-dun"
+      },
+      {
+        "id": "biography",
+        "title": "Who is Poseidon?",
+        "box": {
+          "width": 262,
+          "height": 258
+        },
+        "maxFittingBasePx": 15.2,
+        "fitAt16": false,
+        "neededHeightAt16": 312,
+        "text": "Who is Poseidon?\n\nPoseidon is one of the mightiest gods in Greek mythology! He rules the seas and oceans, carrying a powerful golden trident.\n\nWhen Poseidon is happy, the sea can be calm and peaceful. But when he gets angry, watch out! He can create enormous waves, wild storms and even earthquakes.\n\nHe lives in a magnificent palace beneath the sea, surrounded by amazing sea creatures."
+      },
+      {
+        "id": "powers-card",
+        "title": "Powers",
+        "box": {
+          "width": 125,
+          "height": 140
+        },
+        "maxFittingBasePx": 21,
+        "fitAt16": true,
+        "neededHeightAt16": 140,
+        "text": "Powers\n\nSeas, storms and earthquakes"
+      },
+      {
+        "id": "symbol-card",
+        "title": "Symbol",
+        "box": {
+          "width": 130,
+          "height": 150
+        },
+        "maxFittingBasePx": 27.8,
+        "fitAt16": true,
+        "neededHeightAt16": 150,
+        "text": "Symbol\n\nHis mighty trident"
+      },
+      {
+        "id": "home-card",
+        "title": "Home",
+        "box": {
+          "width": 130,
+          "height": 150
+        },
+        "maxFittingBasePx": 22.5,
+        "fitAt16": true,
+        "neededHeightAt16": 150,
+        "text": "Home\n\nA palace beneath the sea"
+      },
+      {
+        "id": "animal-card",
+        "title": "Sacred Animal",
+        "box": {
+          "width": 128,
+          "height": 150
+        },
+        "maxFittingBasePx": 32.2,
+        "fitAt16": true,
+        "neededHeightAt16": 150,
+        "text": "Sacred Animal\n\nThe horse"
+      },
+      {
+        "id": "special-powers",
+        "title": "Special Powers",
+        "box": {
+          "width": 337,
+          "height": 169
+        },
+        "maxFittingBasePx": 17.1,
+        "fitAt16": true,
+        "neededHeightAt16": 169,
+        "text": "Special Powers\n\nPoseidon can whip up enormous waves, summon fierce storms and shake the earth with earthquakes!\n\nWith a strike of his mighty trident, he can turn a peaceful sea into a dangerous adventure."
+      },
+      {
+        "id": "family",
+        "title": "Family",
+        "box": {
+          "width": 294,
+          "height": 169
+        },
+        "maxFittingBasePx": 16.5,
+        "fitAt16": true,
+        "neededHeightAt16": 169,
+        "text": "Family\n\nPoseidon's brothers are Zeus, king of the gods, and Hades, ruler of the Underworld.\n\nHis wife is Amphitrite, a beautiful sea goddess, and one of his sons is Polyphemus, a giant Cyclops with just one eye!"
+      },
+      {
+        "id": "personality",
+        "title": "Personality",
+        "box": {
+          "width": 262,
+          "height": 161
+        },
+        "maxFittingBasePx": 15.1,
+        "fitAt16": false,
+        "neededHeightAt16": 179,
+        "text": "Personality\n\nPoseidon is powerful, proud and very quick to lose his temper!\n\nHe can be generous and helpful, but if someone makes him angry, they might find themselves in some very stormy trouble."
+      },
+      {
+        "id": "did-you-know",
+        "title": "Did You Know?",
+        "box": {
+          "width": 154,
+          "height": 162
+        },
+        "maxFittingBasePx": 13.1,
+        "fitAt16": false,
+        "neededHeightAt16": 225,
+        "text": "Did You Know?\n\nThe ancient Greeks believed Poseidon was also the god of horses!\n\nSome myths say he created the very first horse. Imagine having a sea god to thank for ponies!"
+      },
+      {
+        "id": "stories",
+        "title": "Explore His Stories",
+        "box": {
+          "width": 322,
+          "height": 207
+        },
+        "maxFittingBasePx": 17.2,
+        "fitAt16": true,
+        "neededHeightAt16": 207,
+        "text": "Explore His Stories\nOdysseus and the Cyclops\nComing soon\nPoseidon and Athena\nComing soon\nThe Adventures of Odysseus\nComing soon"
+      }
+    ]
+  },
+  {
+    "viewport": {
+      "width": 820,
+      "height": 1180
+    },
+    "pageWidth": 784,
+    "panels": [
+      {
+        "id": "title",
+        "title": "POSEIDON",
+        "box": {
+          "width": 384,
+          "height": 96
+        },
+        "maxFittingBasePx": 16.4,
+        "fitAt16": true,
+        "neededHeightAt16": 96,
+        "text": "POSEIDON\n\nGod of the Sea\n\nSay it: puh-SY-dun"
+      },
+      {
+        "id": "biography",
+        "title": "Who is Poseidon?",
+        "box": {
+          "width": 281,
+          "height": 276
+        },
+        "maxFittingBasePx": 16.3,
+        "fitAt16": true,
+        "neededHeightAt16": 276,
+        "text": "Who is Poseidon?\n\nPoseidon is one of the mightiest gods in Greek mythology! He rules the seas and oceans, carrying a powerful golden trident.\n\nWhen Poseidon is happy, the sea can be calm and peaceful. But when he gets angry, watch out! He can create enormous waves, wild storms and even earthquakes.\n\nHe lives in a magnificent palace beneath the sea, surrounded by amazing sea creatures."
+      },
+      {
+        "id": "powers-card",
+        "title": "Powers",
+        "box": {
+          "width": 134,
+          "height": 150
+        },
+        "maxFittingBasePx": 22.5,
+        "fitAt16": true,
+        "neededHeightAt16": 150,
+        "text": "Powers\n\nSeas, storms and earthquakes"
+      },
+      {
+        "id": "symbol-card",
+        "title": "Symbol",
+        "box": {
+          "width": 140,
+          "height": 161
+        },
+        "maxFittingBasePx": 29.9,
+        "fitAt16": true,
+        "neededHeightAt16": 161,
+        "text": "Symbol\n\nHis mighty trident"
+      },
+      {
+        "id": "home-card",
+        "title": "Home",
+        "box": {
+          "width": 140,
+          "height": 161
+        },
+        "maxFittingBasePx": 24.2,
+        "fitAt16": true,
+        "neededHeightAt16": 161,
+        "text": "Home\n\nA palace beneath the sea"
+      },
+      {
+        "id": "animal-card",
+        "title": "Sacred Animal",
+        "box": {
+          "width": 137,
+          "height": 161
+        },
+        "maxFittingBasePx": 34.5,
+        "fitAt16": true,
+        "neededHeightAt16": 161,
+        "text": "Sacred Animal\n\nThe horse"
+      },
+      {
+        "id": "special-powers",
+        "title": "Special Powers",
+        "box": {
+          "width": 361,
+          "height": 181
+        },
+        "maxFittingBasePx": 18.3,
+        "fitAt16": true,
+        "neededHeightAt16": 181,
+        "text": "Special Powers\n\nPoseidon can whip up enormous waves, summon fierce storms and shake the earth with earthquakes!\n\nWith a strike of his mighty trident, he can turn a peaceful sea into a dangerous adventure."
+      },
+      {
+        "id": "family",
+        "title": "Family",
+        "box": {
+          "width": 314,
+          "height": 181
+        },
+        "maxFittingBasePx": 17.7,
+        "fitAt16": true,
+        "neededHeightAt16": 181,
+        "text": "Family\n\nPoseidon's brothers are Zeus, king of the gods, and Hades, ruler of the Underworld.\n\nHis wife is Amphitrite, a beautiful sea goddess, and one of his sons is Polyphemus, a giant Cyclops with just one eye!"
+      },
+      {
+        "id": "personality",
+        "title": "Personality",
+        "box": {
+          "width": 281,
+          "height": 173
+        },
+        "maxFittingBasePx": 16.2,
+        "fitAt16": true,
+        "neededHeightAt16": 173,
+        "text": "Personality\n\nPoseidon is powerful, proud and very quick to lose his temper!\n\nHe can be generous and helpful, but if someone makes him angry, they might find themselves in some very stormy trouble."
+      },
+      {
+        "id": "did-you-know",
+        "title": "Did You Know?",
+        "box": {
+          "width": 165,
+          "height": 174
+        },
+        "maxFittingBasePx": 14,
+        "fitAt16": false,
+        "neededHeightAt16": 225,
+        "text": "Did You Know?\n\nThe ancient Greeks believed Poseidon was also the god of horses!\n\nSome myths say he created the very first horse. Imagine having a sea god to thank for ponies!"
+      },
+      {
+        "id": "stories",
+        "title": "Explore His Stories",
+        "box": {
+          "width": 345,
+          "height": 222
+        },
+        "maxFittingBasePx": 18.5,
+        "fitAt16": true,
+        "neededHeightAt16": 222,
+        "text": "Explore His Stories\nOdysseus and the Cyclops\nComing soon\nPoseidon and Athena\nComing soon\nThe Adventures of Odysseus\nComing soon"
+      }
+    ]
+  },
+  {
+    "viewport": {
+      "width": 1024,
+      "height": 1366
+    },
+    "pageWidth": 850,
+    "panels": [
+      {
+        "id": "title",
+        "title": "POSEIDON",
+        "box": {
+          "width": 417,
+          "height": 105
+        },
+        "maxFittingBasePx": 18.1,
+        "fitAt16": true,
+        "neededHeightAt16": 105,
+        "text": "POSEIDON\n\nGod of the Sea\n\nSay it: puh-SY-dun"
+      },
+      {
+        "id": "biography",
+        "title": "Who is Poseidon?",
+        "box": {
+          "width": 304,
+          "height": 299
+        },
+        "maxFittingBasePx": 17.7,
+        "fitAt16": true,
+        "neededHeightAt16": 299,
+        "text": "Who is Poseidon?\n\nPoseidon is one of the mightiest gods in Greek mythology! He rules the seas and oceans, carrying a powerful golden trident.\n\nWhen Poseidon is happy, the sea can be calm and peaceful. But when he gets angry, watch out! He can create enormous waves, wild storms and even earthquakes.\n\nHe lives in a magnificent palace beneath the sea, surrounded by amazing sea creatures."
+      },
+      {
+        "id": "powers-card",
+        "title": "Powers",
+        "box": {
+          "width": 145,
+          "height": 162
+        },
+        "maxFittingBasePx": 24.3,
+        "fitAt16": true,
+        "neededHeightAt16": 162,
+        "text": "Powers\n\nSeas, storms and earthquakes"
+      },
+      {
+        "id": "symbol-card",
+        "title": "Symbol",
+        "box": {
+          "width": 151,
+          "height": 174
+        },
+        "maxFittingBasePx": 32.2,
+        "fitAt16": true,
+        "neededHeightAt16": 174,
+        "text": "Symbol\n\nHis mighty trident"
+      },
+      {
+        "id": "home-card",
+        "title": "Home",
+        "box": {
+          "width": 151,
+          "height": 174
+        },
+        "maxFittingBasePx": 26.1,
+        "fitAt16": true,
+        "neededHeightAt16": 174,
+        "text": "Home\n\nA palace beneath the sea"
+      },
+      {
+        "id": "animal-card",
+        "title": "Sacred Animal",
+        "box": {
+          "width": 149,
+          "height": 174
+        },
+        "maxFittingBasePx": 37.4,
+        "fitAt16": true,
+        "neededHeightAt16": 174,
+        "text": "Sacred Animal\n\nThe horse"
+      },
+      {
+        "id": "special-powers",
+        "title": "Special Powers",
+        "box": {
+          "width": 391,
+          "height": 196
+        },
+        "maxFittingBasePx": 19.9,
+        "fitAt16": true,
+        "neededHeightAt16": 196,
+        "text": "Special Powers\n\nPoseidon can whip up enormous waves, summon fierce storms and shake the earth with earthquakes!\n\nWith a strike of his mighty trident, he can turn a peaceful sea into a dangerous adventure."
+      },
+      {
+        "id": "family",
+        "title": "Family",
+        "box": {
+          "width": 341,
+          "height": 196
+        },
+        "maxFittingBasePx": 19.2,
+        "fitAt16": true,
+        "neededHeightAt16": 196,
+        "text": "Family\n\nPoseidon's brothers are Zeus, king of the gods, and Hades, ruler of the Underworld.\n\nHis wife is Amphitrite, a beautiful sea goddess, and one of his sons is Polyphemus, a giant Cyclops with just one eye!"
+      },
+      {
+        "id": "personality",
+        "title": "Personality",
+        "box": {
+          "width": 304,
+          "height": 187
+        },
+        "maxFittingBasePx": 17.6,
+        "fitAt16": true,
+        "neededHeightAt16": 187,
+        "text": "Personality\n\nPoseidon is powerful, proud and very quick to lose his temper!\n\nHe can be generous and helpful, but if someone makes him angry, they might find themselves in some very stormy trouble."
+      },
+      {
+        "id": "did-you-know",
+        "title": "Did You Know?",
+        "box": {
+          "width": 179,
+          "height": 189
+        },
+        "maxFittingBasePx": 15.2,
+        "fitAt16": false,
+        "neededHeightAt16": 200,
+        "text": "Did You Know?\n\nThe ancient Greeks believed Poseidon was also the god of horses!\n\nSome myths say he created the very first horse. Imagine having a sea god to thank for ponies!"
+      },
+      {
+        "id": "stories",
+        "title": "Explore His Stories",
+        "box": {
+          "width": 374,
+          "height": 240
+        },
+        "maxFittingBasePx": 20,
+        "fitAt16": true,
+        "neededHeightAt16": 240,
+        "text": "Explore His Stories\nOdysseus and the Cyclops\nComing soon\nPoseidon and Athena\nComing soon\nThe Adventures of Odysseus\nComing soon"
+      }
+    ]
+  }
+]
