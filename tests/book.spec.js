@@ -3,7 +3,7 @@ for (const [width, height] of [[1024,768],[1180,820],[1366,1024]]) {
   test(`spread and exact live text fit at ${width} × ${height}`, async ({ page }) => {
     await page.setViewportSize({width,height});
     const errors = []; page.on('pageerror', error => errors.push(error.message));
-    await page.goto('./'); await expect(page.locator('#font-status')).toHaveText('Bundled book font loaded.'); await expect(page.locator('.page:visible')).toHaveCount(2);
+    await page.goto('./?god=poseidon'); await expect(page.locator('#font-status')).toHaveText('Bundled book font loaded.'); await expect(page.locator('.page:visible')).toHaveCount(2);
     await expect(page.locator('.art')).toHaveCount(2);
     await expect.poll(() => page.locator('.art').evaluateAll(images => images.every(i => i.complete && i.naturalWidth === 1067 && i.naturalHeight === 1280))).toBeTruthy();
     await expect(page.locator('.region.overflowing')).toHaveCount(0);
@@ -19,7 +19,7 @@ for (const [width, height] of [[1024,768],[1180,820],[1366,1024]]) {
   });
 }
 test('iPad portrait reads one page; landscape supports single and double views', async ({page}) => {
-  await page.setViewportSize({width:768,height:1024}); await page.goto('./'); await expect(page.locator('#font-status')).toHaveText('Bundled book font loaded.');
+  await page.setViewportSize({width:768,height:1024}); await page.goto('./?god=poseidon'); await expect(page.locator('#font-status')).toHaveText('Bundled book font loaded.');
   await expect(page.locator('.page:visible')).toHaveCount(1);
   await expect(page.locator('.region.overflowing:visible')).toHaveCount(0);
   await page.locator('#next').click(); await expect(page.locator('#page-status')).toHaveText('Page 2 of 2');
@@ -36,7 +36,7 @@ test('iPad portrait reads one page; landscape supports single and double views',
   await expect(page.locator('.page:visible')).toHaveCount(2);
 });
 test('typography changes real text and exposes overflow; tools close with Escape', async ({page}) => {
-  await page.setViewportSize({width:1024,height:768}); await page.goto('./'); await expect(page.locator('#font-status')).toHaveText('Bundled book font loaded.');
+  await page.setViewportSize({width:1024,height:768}); await page.goto('./?god=poseidon'); await expect(page.locator('#font-status')).toHaveText('Bundled book font loaded.');
   const before = await page.locator('.stories').evaluate(e => parseFloat(getComputedStyle(e).fontSize));
   await page.locator('#open-tools').click();
   await page.locator('#text-scale').fill('140');
@@ -47,7 +47,7 @@ test('typography changes real text and exposes overflow; tools close with Escape
   await page.keyboard.press('Escape'); await expect(page.locator('#tools')).not.toBeVisible();
 });
 test('print produces artwork and all copy on two A5 sheets', async ({page}) => {
-  await page.goto('./'); await expect(page.locator('#font-status')).toHaveText('Bundled book font loaded.'); await page.emulateMedia({media:'print'});
+  await page.goto('./?god=poseidon'); await expect(page.locator('#font-status')).toHaveText('Bundled book font loaded.'); await page.emulateMedia({media:'print'});
   await expect(page.locator('.page:visible')).toHaveCount(2);
   await expect(page.locator('.site-header')).not.toBeVisible();
   await expect(page.locator('.region.overflowing:visible')).toHaveCount(0);
@@ -62,7 +62,7 @@ test('print produces artwork and all copy on two A5 sheets', async ({page}) => {
 });
 
 test('all current approved copy appears exactly, with no added sections', async ({page}) => {
-  await page.goto('./'); await expect(page.locator('#font-status')).toHaveText('Bundled book font loaded.');
+  await page.goto('./?god=poseidon'); await expect(page.locator('#font-status')).toHaveText('Bundled book font loaded.');
   const expected = {
     title: ['POSEIDON', 'God of the Sea', 'Say it: puh-SY-dun'],
     biography: ['Who is Poseidon?', 'Poseidon is one of the mightiest Greek gods! He rules the seas and oceans with his powerful golden trident.', "When he's happy, the sea is calm and peaceful. But when he's angry, watch out! He can create enormous waves, wild storms and even earthquakes.", 'He lives in a magnificent underwater palace surrounded by amazing sea creatures.'],
@@ -86,7 +86,7 @@ for (const [width,height] of [[393,844],[844,393],[768,1024],[1024,768],[820,118
   test(`touch viewport ${width} × ${height}: font, biography bounds and both pages`, async ({browser}) => {
     const context = await browser.newContext({viewport:{width,height},isMobile:true,hasTouch:true,deviceScaleFactor:2});
     const page = await context.newPage();
-    await page.goto('http://127.0.0.1:8123/' + encodeURIComponent(require('node:path').basename(process.cwd())) + '/dist/');
+    await page.goto('http://127.0.0.1:8123/' + encodeURIComponent(require('node:path').basename(process.cwd())) + '/dist/?god=poseidon');
     await expect(page.locator('#font-status')).toHaveText('Bundled book font loaded.');
     const checkBounds = async () => {
       await expect(page.locator('.region.overflowing:visible')).toHaveCount(0);
@@ -94,7 +94,7 @@ for (const [width,height] of [[393,844],[844,393],[768,1024],[1024,768],[820,118
       for (const size of sizes) expect(size.canvas).toBeCloseTo(size.w,1);
     };
     await checkBounds();
-    await page.locator('#home').click();
+    // The chapter opens at its first page.
     const clearance = await page.locator('.biography').evaluate(e=>{
       const scale=e.closest('.page-canvas').getBoundingClientRect().width/494;
       const range=document.createRange();range.selectNodeContents(e.lastElementChild);

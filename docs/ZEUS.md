@@ -6,6 +6,6 @@ The approved wording is recorded in pages.js. The accepted compact formatting us
 
 The reference canvas is 494 CSS px wide with 18 CSS px body text. Artwork and overlays scale together on resize. This does not guarantee 18 physical CSS px on small phone screens or double-page phone overviews; zoom remains available. The smallest iPad spread, 1024 × 768, supports the approved 18 px layout, with tight Family and Stories clearance. Larger tablet spreads scale the text up.
 
-Navigation: choose Poseidon or Zeus in the header. The god query parameter allows direct links; unknown values fall back to Poseidon. Home returns to the selected chapter's first page. Printing outputs that chapter on two A5 sheets.
+Navigation: choose Poseidon or Zeus in the header. The god query parameter allows direct links; unknown values fall back to Poseidon. Home returns to the Contents menu. Printing outputs that chapter on two A5 sheets.
 
 Validation covers phone and tablet portrait, both landscape modes, chapter switching, image loading, overflow and two-page printing in Chromium. Native iPad Safari has not been physically tested.

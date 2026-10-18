@@ -85,3 +85,9 @@ input[type='checkbox'] { width: 24px; height: 24px; vertical-align: middle; }
 .character-picker { margin-left:auto; display:flex; align-items:center; gap:6px; font-size:14px; }
 #character { min-height:44px; font:inherit; color:#163f47; background:#f7e8be; border:1px solid #d6b96f; border-radius:8px; padding:6px; }
 @media(max-width:600px) { .site-header { gap:6px; } .character-picker { font-size:12px; } }
+
+.contents { max-width:640px; margin:36px auto; padding:24px; color:#352512; background:#fff8e9; border:1px solid #d6b96f; border-radius:12px; }
+.contents h2 { margin-top:0; font-family:Georgia,serif; }
+.contents ul { list-style:none; padding:0; margin:0; }
+.contents li + li { margin-top:12px; }
+.contents a { display:block; padding:16px; border:1px solid #d6b96f; border-radius:8px; color:#163f47; background:#f7e8be; font-weight:600; }

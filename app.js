@@ -1,5 +1,10 @@
 import { pages, character } from './pages.js';
 
+const reading = ['poseidon', 'zeus'].includes(new URLSearchParams(location.search).get('god'));
+document.querySelector('#contents').hidden = reading;
+document.querySelector('#reader').hidden = !reading;
+document.querySelector('.character-picker').hidden = !reading;
+document.querySelector('#home').hidden = !reading;
 const book = document.querySelector('#book');
 book.classList.add(character);
 book.setAttribute('aria-label', `${character === 'zeus' ? 'Zeus' : 'Poseidon'}’s illustrated two-page book`);
@@ -101,7 +106,7 @@ function checkFit() {
   const list = document.querySelector('#overflow-list'); list.replaceChildren();
   for (const title of failed) { const li = document.createElement('li'); li.textContent = `${title}: text exceeds its measured panel.`; list.append(li); }
 }
-document.querySelector('#home').addEventListener('click', () => { currentPage = 0; updateOrientation(); window.scrollTo(0, 0); });
+document.querySelector('#home').addEventListener('click', () => { const url = new URL(location.href); url.searchParams.delete('god'); location.assign(url); });
 document.querySelector('#previous').addEventListener('click', () => { currentPage = 0; updateOrientation(); window.scrollTo(0, 0); });
 document.querySelector('#next').addEventListener('click', () => { currentPage = 1; updateOrientation(); window.scrollTo(0, 0); });
 document.querySelector('#view-mode').addEventListener('click', () => { landscapeChoice = !book.classList.contains('spread'); updateOrientation(); });

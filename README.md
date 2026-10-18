@@ -31,7 +31,7 @@ Tests serve the built site beneath a project subpath. Run the build before testi
 
 - Portrait: one page at a time, with Previous/Next and Home.
 - Landscape: choose **Single page** or **Two pages**. Tablets default to the spread, phones to one page. The landscape choice survives rotation for the current session.
-- Home returns to the first page in either orientation.
+- Home returns to the Contents menu in either orientation.
 - Layout checks opens test-only typography scaling (100–140%), panel outlines, overflow reports and Print.
 - Stories are labelled Coming soon and are not links.
 - Text and artwork share a fixed reference canvas and scale together. A bundled, locally served Liberation Serif font keeps wrapping consistent across devices; its SIL Open Font License is in `assets/fonts/LICENSE.txt`. The biography has extra bottom clearance. Browser text inflation is disabled for the book layout. Increasing the test scale intentionally reveals limits; overflow is visibly reported, never clipped.
@@ -66,3 +66,5 @@ Production builds use content-hashed JavaScript and CSS filenames so a refreshed
 Choose Zeus in the header, or open `?god=zeus`. Portrait shows one page; landscape supports single-page and two-page views. Both artwork and live text scale together. Stories retain their approved Coming soon labels until destinations are available.
 
 The approved compact Zeus formatting reduces Powers indentation, tightens Family and Home spacing, and uses an unbulleted semantic story list. Exact wording is preserved. See [Zeus specification](docs/ZEUS.md).
+
+The landing page is a basic Contents menu linking to Poseidon and Zeus. Home returns to Contents; direct chapter links remain available. The menu can be expanded as more chapters are approved.

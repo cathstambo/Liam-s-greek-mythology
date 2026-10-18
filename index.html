@@ -14,9 +14,19 @@
   <header class="site-header">
     <h1>Liam's Greek Mythology Corner</h1>
     <label class="character-picker">God <select id="character"><option value="poseidon">Poseidon</option><option value="zeus">Zeus</option></select></label>
-    <button id="home" type="button" aria-label="Home — return to the first page">Home</button>
+    <button id="home" type="button" aria-label="Home — return to contents">Home</button>
   </header>
   <main>
+    <section id="contents" class="contents" aria-labelledby="contents-title">
+      <h2 id="contents-title">Contents</h2>
+      <nav aria-label="Chapters">
+        <ul>
+          <li><a href="?god=poseidon">Poseidon — God of the Sea</a></li>
+          <li><a href="?god=zeus">Zeus — King of the Gods</a></li>
+        </ul>
+      </nav>
+    </section>
+    <div id="reader" hidden>
     <div id="book" class="book" aria-label="Poseidon's illustrated two-page book"></div>
     <nav class="page-navigation" aria-label="Book pages">
       <button id="previous" type="button">← Previous page</button>
@@ -27,6 +37,7 @@
     </nav>
 
     <p id="fit-announcement" class="sr-only" role="status" aria-live="polite"></p>
+    </div>
     <noscript><p>This illustrated prototype needs JavaScript for its editable text and navigation.</p></noscript>
   </main>
   <dialog id="tools" aria-labelledby="tools-title">
