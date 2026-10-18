@@ -71,3 +71,17 @@ input[type='checkbox'] { width: 24px; height: 24px; vertical-align: middle; }
   .region.overflowing, .diagnostics .region { outline: none; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+
+/* Approved Zeus fit; Poseidon retains its own typography. */
+.zeus .special-powers ul { padding-left:.5em; }
+.zeus .family { line-height:1.15; }
+.zeus .family h3 { left:1.1627907%; width:33.7%; }
+.zeus .region.home-card h3 { margin-bottom:0; }
+.zeus .home-card p { line-height:1.1; }
+.zeus .stories h3 { position:absolute; top:0; left:15%; width:85%; margin:0; }
+.zeus .stories ul { list-style:none; padding-left:0; padding-top:9.5238095238%; margin:0; }
+.zeus .stories li { margin-bottom:.15em; }
+.zeus .stories li:last-child { margin-bottom:0; }
+.character-picker { margin-left:auto; display:flex; align-items:center; gap:6px; font-size:14px; }
+#character { min-height:44px; font:inherit; color:#163f47; background:#f7e8be; border:1px solid #d6b96f; border-radius:8px; padding:6px; }
+@media(max-width:600px) { .site-header { gap:6px; } .character-picker { font-size:12px; } }

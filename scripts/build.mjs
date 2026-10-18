@@ -16,3 +16,5 @@ for(const side of ['left','right']) await copyFile(`assets/poseidon-${side}.svg`
 console.log('Built dist/ with matching versioned code/styles and relative project URLs.');
 
 await cp('assets/fonts','dist/assets/fonts',{recursive:true});
+
+for (const file of ['zeus-left.png','zeus-right.jpg']) await copyFile(`assets/${file}`,`dist/assets/${file}`);

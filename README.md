@@ -1,6 +1,6 @@
 # Liam's Greek Mythology Corner
 
-A static, two-page Poseidon prototype. The artwork stays separate from selectable HTML text. No backend, login, analytics, ads, keys, runtime dependencies or CDN is needed.
+A static illustrated book with approved two-page Poseidon and Zeus chapters. The artwork stays separate from selectable HTML text. No backend, login, analytics, ads, keys, runtime dependencies or CDN is needed.
 
 To reproduce the non-destructive artwork canvases from the retained source images, run `npm run art:prepare`. This replaces only the SVG wrappers; it does not edit source pixels.
 
@@ -60,3 +60,9 @@ Use Layout checks → Print A5 pages. Choose A5 portrait, 100% scale, background
 Add approved artwork with a common canvas and append page data in `pages.js`: copy, accessible description and percentage-based inner rectangles. Add navigation/grouping only when specified. Keep lettering in HTML, not raster assets. Validate fit at the smallest target viewport before adding more content. Repeat subpath, orientation, overflow and print checks.
 
 Production builds use content-hashed JavaScript and CSS filenames so a refreshed deployment cannot mix new page logic with old cached styles.
+
+## Zeus
+
+Choose Zeus in the header, or open `?god=zeus`. Portrait shows one page; landscape supports single-page and two-page views. Both artwork and live text scale together. Stories retain their approved Coming soon labels until destinations are available.
+
+The approved compact Zeus formatting reduces Powers indentation, tightens Family and Home spacing, and uses an unbulleted semantic story list. Exact wording is preserved. See [Zeus specification](docs/ZEUS.md).

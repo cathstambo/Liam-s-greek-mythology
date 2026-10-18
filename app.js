@@ -1,6 +1,11 @@
-import { pages } from './pages.js';
+import { pages, character } from './pages.js';
 
 const book = document.querySelector('#book');
+book.classList.add(character);
+book.setAttribute('aria-label', `${character === 'zeus' ? 'Zeus' : 'Poseidon'}’s illustrated two-page book`);
+const selector = document.querySelector('#character');
+selector.value = character;
+selector.addEventListener('change', () => { const url = new URL(location.href); url.searchParams.set('god', selector.value); location.assign(url); });
 const tools = document.querySelector('#tools');
 const landscape = matchMedia('(orientation: landscape)');
 const tabletWidth = matchMedia('(min-width: 1000px)');
@@ -36,7 +41,7 @@ for (const page of pages) {
   const article = document.createElement('article'); article.className = 'page';
   article.setAttribute('aria-label', page.label); article.tabIndex = -1;
   const image = document.createElement('img'); image.className = 'art';
-  image.src = `./assets/poseidon-${page.id}.svg`; image.width = 1067; image.height = 1280;
+  image.src = `./assets/${page.art || `poseidon-${page.id}.svg`}`; image.width = 1067; image.height = 1280;
   image.alt = page.description; image.addEventListener('load', checkFit);
   image.addEventListener('error', () => { image.dataset.failed = 'true'; checkFit(); });
   const canvas = document.createElement('div'); canvas.className = 'page-canvas';
