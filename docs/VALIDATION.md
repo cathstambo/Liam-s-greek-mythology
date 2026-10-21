@@ -55,3 +55,7 @@ A later device screenshot showed oversized text and portrait content visible tog
 ## Portrait, both landscape modes and biography clearance
 
 Latest user direction restores portrait reading and both landscape choices. All 14 tests pass. Touch emulation at seven viewport sizes checks both pages, available landscape choices, no panel overflow at 100%, no horizontal document overflow, and that the transformed canvas width matches its page wrapper immediately after switching. The biography retains about **24.6 reference CSS px** below its final line, with a regression assertion requiring more than 10 reference px at every size. Tests verify the bundled font loads instead of assuming a platform serif has the same metrics. These remain desktop Chromium/mobile-emulation results, not physical iPad or Android guarantees. Physical checks remain useful, but the user does not need an iPad to run the automated suite.
+
+## Hades publication — 21 October 2026
+
+The built project passed all 31 Playwright checks, including exact final Hades wording, glyph and panel bounds in phone/tablet portrait and both landscape modes, chapter menu navigation, biography heading placement and paragraph spacing, and two-page A5 printing. Existing Poseidon/Zeus checks also passed. The 1024×768 Hades integrated screenshot was visually inspected against the approved preview. Source artwork is retained in common-canvas wrappers without cropping. Physical iPad Safari remains unverified.

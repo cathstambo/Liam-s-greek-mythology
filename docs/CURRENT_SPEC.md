@@ -81,3 +81,5 @@ No separate comfortable-reading view was added. Rotating restores the landscape 
 Print uses two separate A5 portrait sheets with artwork aspect ratios retained and no controls. A5 does not share the image's proportions, so there is white space below each illustration. Native Safari/printer checks remain outstanding. GitHub Pages build/workflow is prepared; actual publication is a separate operation.
 
 The default landing page is a basic Contents menu for Poseidon and Zeus. Home returns to this menu; chapter URLs use `?god=poseidon` and `?god=zeus`.
+
+Hades is available from Contents and `?god=hades`. [Approved Hades specification](HADES.md) records the final wording, artwork and biography placement.

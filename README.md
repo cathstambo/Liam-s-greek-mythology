@@ -1,6 +1,6 @@
 # Liam's Greek Mythology Corner
 
-A static illustrated book with approved two-page Poseidon and Zeus chapters. The artwork stays separate from selectable HTML text. No backend, login, analytics, ads, keys, runtime dependencies or CDN is needed.
+A static illustrated book with approved two-page Poseidon, Zeus and Hades chapters. The artwork stays separate from selectable HTML text. No backend, login, analytics, ads, keys, runtime dependencies or CDN is needed.
 
 To reproduce the non-destructive artwork canvases from the retained source images, run `npm run art:prepare`. This replaces only the SVG wrappers; it does not edit source pixels.
 
@@ -67,4 +67,8 @@ Choose Zeus in the header, or open `?god=zeus`. Portrait shows one page; landsca
 
 The approved compact Zeus formatting reduces Powers indentation, tightens Family and Home spacing, and uses an unbulleted semantic story list. Exact wording is preserved. See [Zeus specification](docs/ZEUS.md).
 
-The landing page is a basic Contents menu linking to Poseidon and Zeus. Home returns to Contents; direct chapter links remain available. The menu can be expanded as more chapters are approved.
+The landing page is a basic Contents menu linking to Poseidon, Zeus and Hades. Home returns to Contents; direct chapter links remain available. The menu can be expanded as more chapters are approved.
+
+## Hades
+
+Choose Hades in Contents or the chapter selector, or open `?god=hades`. The approved condensed wording and final biography spacing are live HTML. Artwork is preserved in common-canvas SVG wrappers, with source files retained. See [Hades specification](docs/HADES.md).

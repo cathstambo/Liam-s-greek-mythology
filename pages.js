@@ -313,5 +313,172 @@ const zeusPages = [
     "art": "zeus-right.jpg"
   }
 ];
-export const character = new URLSearchParams(location.search).get("god") === "zeus" ? "zeus" : "poseidon";
-export const pages = character === "zeus" ? zeusPages : poseidonPages;
+const hadesPages = [
+  {
+    "id": "left",
+    "label": "Hades — left page",
+    "description": "Hades with biography and four quick facts.",
+    "art": "hades-left.svg",
+    "regions": [
+      {
+        "id": "title",
+        "title": "HADES",
+        "bullets": [],
+        "box": [
+          11.246485473289598,
+          4.6875,
+          40.299906279287725,
+          11.71875
+        ],
+        "subtitle": "God of the Underworld",
+        "pronunciation": "Say it: HAY-deez"
+      },
+      {
+        "id": "biography",
+        "title": "Who is Hades?",
+        "paragraphs": [
+          "Hades is the powerful ruler of the Underworld, where the souls of the dead go.",
+          "He is the brother of Zeus and Poseidon. While his brothers rule the sky and sea, Hades rules the world beneath the earth.",
+          "He is a serious but fair king who guards his kingdom with the help of Cerberus, his three-headed dog."
+        ],
+        "bullets": [],
+        "box": [
+          5.154639175257731,
+          23.046875,
+          39.36269915651359,
+          71.09375
+        ]
+      },
+      {
+        "id": "powers-card",
+        "title": "Powers",
+        "paragraphs": [
+          "Riches and invisibility"
+        ],
+        "bullets": [],
+        "box": [
+          49.203373945641985,
+          51.5625,
+          21.087160262417996,
+          13.671875
+        ]
+      },
+      {
+        "id": "symbol-card",
+        "title": "Symbol",
+        "paragraphs": [
+          "Helm of Darkness"
+        ],
+        "bullets": [],
+        "box": [
+          75.44517338331771,
+          51.5625,
+          21.087160262417996,
+          13.671875
+        ]
+      },
+      {
+        "id": "home-card",
+        "title": "Home",
+        "paragraphs": [
+          "The Underworld"
+        ],
+        "bullets": [],
+        "box": [
+          49.203373945641985,
+          78.90625,
+          21.087160262417996,
+          15.234375
+        ]
+      },
+      {
+        "id": "animal-card",
+        "title": "Guardian",
+        "paragraphs": [
+          "Cerberus"
+        ],
+        "bullets": [],
+        "box": [
+          75.44517338331771,
+          79.6875,
+          21.087160262417996,
+          14.453125
+        ]
+      }
+    ]
+  },
+  {
+    "id": "right",
+    "label": "Hades — right page",
+    "description": "Cerberus beside four illustrated Hades information panels.",
+    "art": "hades-right.svg",
+    "regions": [
+      {
+        "id": "special-powers",
+        "title": "Special Powers",
+        "paragraphs": [],
+        "bullets": [
+          "Turns invisible.",
+          "Rules the dead.",
+          "Controls underground riches."
+        ],
+        "box": [
+          6.091846298031865,
+          6.640625,
+          55.763823805060916,
+          20.3125
+        ]
+      },
+      {
+        "id": "family",
+        "title": "Family",
+        "paragraphs": [],
+        "bullets": [
+          "Brothers: Zeus and Poseidon",
+          "Wife: Persephone",
+          "Parents: Cronus and Rhea"
+        ],
+        "box": [
+          6.091846298031865,
+          41.796875,
+          39.831302717900655,
+          23.4375
+        ]
+      },
+      {
+        "id": "did-you-know",
+        "title": "Did You Know?",
+        "paragraphs": [
+          "Hades wasn't the god of death! He ruled the Underworld, but Thanatos represented death itself."
+        ],
+        "bullets": [],
+        "box": [
+          53.88940955951266,
+          41.796875,
+          39.831302717900655,
+          23.4375
+        ]
+      },
+      {
+        "id": "stories",
+        "title": "Explore His Stories",
+        "paragraphs": [],
+        "box": [
+          6.091846298031865,
+          75.390625,
+          87.62886597938144,
+          20.703125
+        ],
+        "stories": [
+          "Hades and Persephone",
+          "The Twelve Labours of Heracles",
+          "Orpheus and Eurydice"
+        ]
+      }
+    ]
+  }
+];
+const chapters = {poseidon:poseidonPages, zeus:zeusPages, hades:hadesPages};
+const selected = new URLSearchParams(location.search).get('god');
+export const character = Object.hasOwn(chapters, selected) ? selected : 'poseidon';
+export const pages = chapters[character];

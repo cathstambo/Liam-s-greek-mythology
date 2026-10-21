@@ -1,13 +1,13 @@
 import { pages, character } from './pages.js';
 
-const reading = ['poseidon', 'zeus'].includes(new URLSearchParams(location.search).get('god'));
+const reading = ['poseidon', 'zeus', 'hades'].includes(new URLSearchParams(location.search).get('god'));
 document.querySelector('#contents').hidden = reading;
 document.querySelector('#reader').hidden = !reading;
 document.querySelector('.character-picker').hidden = !reading;
 document.querySelector('#home').hidden = !reading;
 const book = document.querySelector('#book');
 book.classList.add(character);
-book.setAttribute('aria-label', `${character === 'zeus' ? 'Zeus' : 'Poseidon'}’s illustrated two-page book`);
+book.setAttribute('aria-label', `${character[0].toUpperCase() + character.slice(1)}’s illustrated two-page book`);
 const selector = document.querySelector('#character');
 selector.value = character;
 selector.addEventListener('change', () => { const url = new URL(location.href); url.searchParams.set('god', selector.value); location.assign(url); });
@@ -28,9 +28,9 @@ function content(region) {
   for (const text of [region.subtitle, region.pronunciation, ...(region.paragraphs || [])].filter(Boolean)) {
     const p = document.createElement('p'); p.textContent = text; fragment.append(p);
   }
-  if (region.bullets || region.stories) {
+  if (region.bullets?.length || region.stories?.length) {
     const list = document.createElement('ul');
-    for (const text of region.bullets || region.stories) {
+    for (const text of region.stories || region.bullets) {
       const li = document.createElement('li'); li.append(document.createTextNode(text));
       if (region.stories) {
         const status = document.createElement('span'); status.className = 'soon';

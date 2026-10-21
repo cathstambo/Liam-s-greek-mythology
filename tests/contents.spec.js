@@ -4,7 +4,7 @@ test('contents opens both chapters and Home returns to menu',async({page})=>{
   await page.setViewportSize(size);await page.goto('./');
   await expect(page.getByRole('heading',{name:'Contents',exact:true})).toBeVisible();
   await expect(page.locator('#reader')).not.toBeVisible();
-  for(const god of ['Poseidon','Zeus']){
+  for(const god of ['Poseidon','Zeus','Hades']){
    await page.getByRole('link',{name:new RegExp('^'+god)}).click();
    await expect(page.locator('#reader')).toBeVisible();
    await expect(page.locator('.title h2')).toHaveText(god.toUpperCase());
